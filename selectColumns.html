@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+	SOURCES:
+		http://stackoverflow.com/questions/23073053/datepicker-set-default-date
+-->
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
@@ -9,19 +13,29 @@
 </head>
 <body>
 
-	<table style="margin: 20px;">
-		<tr id="date">
-			<td>Date:</td>
-			<td><input class="datepicker" data-date-format="mm/dd/yyyy"></td>
-		</tr>
-		<tr id="categories">
-			<td>Categories:</td>
-		</tr>
-		<tr id="selectColumns">
-			<td>Select Columns:</td>
-		</tr>
-	</table>
+	<a href="index.html">Home</a>
+	<form>
+		<fieldset>
+			<div class="form-group" id="date">
+				<label class="col-md-2 control-label">Date:</label>
+				<div class="col-md-10"><input class="datepicker"></div>
+			</div>
 
+			<div class="form-group" id="categories">
+				<label class="col-md-2 control-label">Categories:</label>
+			</div>
+
+			<div class="form-group" id="columns">
+				<label class="col-md-2 control-label">Select Columns:</label>
+			</div>
+
+			<div class="form-group" id="submit">
+				<label class="col-md-2 control-label"></label>
+				<div class="col-md-12"><input type="submit" class="btn .btn-default" value="Submit"></div>
+			</div>
+		</fieldset>
+	</form>
+	
 	<script src="jquery/js/jquery-1.9.0.min.js"></script>
     <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="jquery/js/jquery-1.12.3.min.js"></script>
