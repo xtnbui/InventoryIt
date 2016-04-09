@@ -45,6 +45,7 @@ $(document).ready(function() {
 				"class": "checkbox " + type,
 				"type": "checkbox",
 				"id": labelText[i],
+				"name": labelText[i],
 			});
 
 			if (labelText[i] == "Select All") {
@@ -57,18 +58,28 @@ $(document).ready(function() {
 		}
 
 		$("#"+type).append(selectionDiv);
-		console.log(selectionDiv);
 	}
 
 	makeCategorySelectionCheckboxes("categories");
 	makeCategorySelectionCheckboxes("columns");
 	
 	// Select all button functionality
-	$(".checkAll").click(function () {
+	$(".checkAll").click(function(e) {
 		var checkType = $(this).prop("id");
 		var elts = document.getElementsByClassName(checkType);
 		for (var i=0; i<elts.length; i++) {
 			$($(elts[i])).prop("checked", $(this).prop("checked"));
 		}
-	});
+	});	
 });
+
+// On form submission, collect submit 
+function submitForm() {
+	var columns;
+	var categories;
+
+	var column_values = document.getElementsByClassName("columns");
+	var category_values = document.getElementsByClassName("categories");
+	window.location.href = "viewInventory.html";
+	return false;
+}
