@@ -119,3 +119,7 @@
   width: 132px;
   min-height: 120px;
 }
+
+.checkbox-inline+.checkbox-inline {
+	margin-left: 0px;
+}
