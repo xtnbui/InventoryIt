@@ -1,0 +1,121 @@
+.thumbnail-image{
+  width: 75px;
+  height: 75px;
+  border: solid black;
+  padding: 5px;
+  /*from https://www.w3.org/Style/Examples/007/center.en.html**/
+  display: block;
+  margin-left: auto;
+  /*margin-right: auto;*/
+}
+
+.inputted_quantity {
+  width: 50px !important;
+  height: 35px !important;
+  text-align: center;
+  overflow: auto;
+}
+
+.align-horizontally{
+  display: inline-block;
+  vertical-align: bottom;
+  float: none;
+}
+
+/* from http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css*/
+.same-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+
+.overall-container {
+  margin: 50px;
+}
+
+/*from http://stackoverflow.com/questions/23943457/how-do-i-align-the-button-to-the-bottom-of-the-row-column-in-bootstrap*/
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+}
+
+/*centering partially from https://www.w3.org/Style/Examples/007/center.en.html*/
+.right-horizontally {
+  right: 0;
+}
+
+.progress {
+  width: 90%;
+  margin-bottom: 0 !important;
+}
+
+.pencil-name {
+  font-size: 25px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.bordered {
+  border: solid grey;
+}
+
+.specific-height {
+  height: 50px;
+}
+
+.colored-col {
+  background-color: lightgrey;
+}
+
+.right-align {
+  text-align: right;
+}
+
+/* from http://stackoverflow.com/questions/10085723/twitter-bootstrap-add-top-space-between-rows*/
+.item-row {
+  margin-bottom: 30px;
+}
+
+/*from http://stackoverflow.com/questions/10420168/twitter-bootstrap-scrollable-table*/
+.scrollable {
+  overflow: auto;
+}
+
+.lower-col {
+  height: inherit;
+}
+
+.icon-image {
+  width: 150px;
+  height: 150px;
+}
+
+.icons-container {
+  margin-top: 50px;
+}
+
+.category {
+  text-align: center;
+}
+
+.tabs-container {
+  margin-top: 200px;
+}
+
+.lower-row {
+  margin-top: 70px;
+}
+
+.btn-icon {
+  width: 132px;
+  min-height: 120px;
+}

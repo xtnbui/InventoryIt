@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
+	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 	<title>InventoryIt Update Inventory</title>
 </head>
 <body>
@@ -9,8 +10,225 @@
 	<script src="jquery/js/jquery-1.9.0.min.js"></script>
     <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="jquery/js/jquery-1.12.3.min.js"></script>
+
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script src="updateInventory.js"></script>
 
+		<div class="container overall-container">
+
+			<!--  Top Row with Name and Qty-->
+			<div class="row same-height">
+				<div class="col-md-4 col-md-offset-4"><h1>Name</h1></div>
+				<div class="col-md-2"><h1 class="right-align">Qty</h1></div>
+			</div>
+
+			<div class="row specific-height">
+			</div>
+
+		<!-- ITEMS -->
+		<div class="row">
+		<div id="items-container" class="container scrollable">
+			<!--  Bic Pencil-->
+			<div class="row same-height item-row">
+				<!--  image column-->
+				<div class="col-md-2 col-md-offset-2 no-padding">
+					<img class="thumbnail-image img-responsive" src="./pencil.jpg">
+				</div>
+
+				<!--  name and progress bar column-->
+				<div class="col-md-4">
+
+					<a class="pencil-name top" href="">Bic Pencil, 12ct.</a>
+					<div class="progress bottom">
+						<div class="progress-bar" role="progressbar" aria-valuenow="142"	aria-valuemin="0" aria-valuemax="150" style="width:95%">
+							<span class="sr-only">95% Complete</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!--  quantity and save btn column-->
+				<div class="col-md-2">
+					<textarea wrap="off" id="inputted_quantity-Bic" class="form-control top right-horizontally inputted_quantity">142</textarea>
+					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally">Save</button>
+				</div>
+
+			</div>
+
+			<!--  Faber-Castell Pencil-->
+			<div class="row same-height item-row">
+				<!--  image column-->
+				<div class="col-md-2 col-md-offset-2 no-padding">
+					<img class="thumbnail-image img-responsive" src="./pencil.jpg">
+				</div>
+
+				<!--  name and progress bar column-->
+				<div class="col-md-4">
+
+					<a class="pencil-name top" href="">Faber-Castell Pencil, 20ct.</a>
+					<div class="progress bottom">
+						<div class="progress-bar" role="progressbar" aria-valuenow="7"	aria-valuemin="0" aria-valuemax="100" style="width:7%">
+							<span class="sr-only">7% Complete</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!--  quantity and save btn column-->
+				<div class="col-md-2">
+					<textarea id="inputted_quantity-Faber-Castell" class="form-control top right-horizontally inputted_quantity">7</textarea>
+					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally">Save</button>
+				</div>
+
+			</div>
+
+			<!--  Papermate Pencil-->
+			<div class="row same-height item-row">
+				<!--  image column-->
+				<div class="col-md-2 col-md-offset-2 no-padding">
+					<img class="thumbnail-image img-responsive" src="./pencil.jpg">
+				</div>
+
+				<!--  name and progress bar column-->
+				<div class="col-md-4">
+
+					<a class="pencil-name top" href="">Papermate Pencil</a>
+					<div class="progress bottom">
+						<div class="progress-bar" role="progressbar" aria-valuenow="10"	aria-valuemin="0" aria-valuemax="100" style="width:10%">
+							<span class="sr-only">10% Complete</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!--  quantity and save btn column-->
+				<div class="col-md-2">
+					<textarea id="inputted_quantity-Papermate" class="form-control top right-horizontally inputted_quantity">10</textarea>
+					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally">Save</button>
+				</div>
+
+			</div>
+
+
+			<!--  Pentel Pencil-->
+			<div class="row same-height item-row">
+				<!--  image column-->
+				<div class="col-md-2 col-md-offset-2 no-padding">
+					<img class="thumbnail-image img-responsive" src="./pencil.jpg">
+				</div>
+
+				<!--  name and progress bar column-->
+				<div class="col-md-4">
+
+					<a class="pencil-name top" href="">Pentel Pencil</a>
+					<div class="progress bottom">
+						<div class="progress-bar" role="progressbar" aria-valuenow="14"	aria-valuemin="0" aria-valuemax="100" style="width:14%">
+							<span class="sr-only">14% Complete</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!--  quantity and save btn column-->
+				<div class="col-md-2">
+					<textarea id="inputted_quantity-Pentel" class="form-control top right-horizontally inputted_quantity">14</textarea>
+					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally">Save</button>
+				</div>
+
+			</div>
+
+			<!--  Pilot Pencil-->
+			<div class="row same-height item-row">
+				<!--  image column-->
+				<div class="col-md-2 col-md-offset-2 no-padding">
+					<img class="thumbnail-image img-responsive" src="./pencil.jpg">
+				</div>
+
+				<!--  name and progress bar column-->
+				<div class="col-md-4">
+
+					<a class="pencil-name top" href="">Pilot Pencil</a>
+					<div class="progress bottom">
+						<div class="progress-bar" role="progressbar" aria-valuenow="40"	aria-valuemin="0" aria-valuemax="100" style="width:40%">
+							<span class="sr-only">40% Complete</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!--  quantity and save btn column-->
+				<div class="col-md-2">
+					<textarea id="inputted_quantity-Pilot" class="form-control top right-horizontally inputted_quantity">40</textarea>
+					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally">Save</button>
+				</div>
+
+			</div>
+
+			<!--  Staedtler Pencil-->
+			<div class="row same-height item-row">
+				<!--  image column-->
+				<div class="col-md-2 col-md-offset-2 no-padding">
+					<img class="thumbnail-image img-responsive" src="./pencil.jpg">
+				</div>
+
+				<!--  name and progress bar column-->
+				<div class="col-md-4">
+
+					<a class="pencil-name top" href="">Staedtler Pencil</a>
+					<div class="progress bottom">
+						<div class="progress-bar" role="progressbar" aria-valuenow="60"	aria-valuemin="0" aria-valuemax="100" style="width:60%">
+							<span class="sr-only">60% Complete</span>
+						</div>
+					</div>
+
+				</div>
+
+				<!--  quantity and save btn column-->
+				<div class="col-md-2">
+					<textarea id="inputted_quantity-Staedtler" class="form-control top right-horizontally inputted_quantity">60</textarea>
+					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally">Save</button>
+				</div>
+
+			</div>
+
+
+		</div>
+</div>
+
+	<!--  Lower row with Save All-->
+		<div class="row specific-height">
+			<div class="col-md-2 col-md-offset-8 lower-col">
+				<button type="button" class="btn btn-primary btn-md bottom right-horizontally">Save All</button>
+			</div>
+		</div>
+</div>
+		<!-- <div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<img src="./pencil.jpg" alt="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+					</div>
+					<div class="row">
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" style="width: 60%;">
+								 <span class="sr-only">60% Complete</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="row">
+						<form role="form">
+							<input class="form-control" id="inputted_quantity"/>
+						</form>
+					</div>
+					<div class="row">
+						 <a class="btn btn-default">Save</a>
+					</div>
+				</div>
+			</div>
+		</div> -->
 </body>
 </html>
