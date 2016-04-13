@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
 	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
-		<script src="jquery/js/jquery-1.9.0.min.js"></script>
+	<script src="jquery/js/jquery-1.9.0.min.js"></script>
     <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="jquery/js/jquery-1.12.3.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
@@ -14,12 +14,6 @@
 </head>
 <body>
 	
-	<script src="jquery/js/jquery-1.9.0.min.js"></script>
-    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-    <script src="jquery/js/jquery-1.12.3.min.js"></script>
-    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-    <script src="labelSelect.js"></script>
-
     <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -66,7 +60,7 @@
   </div><!-- /.container-fluid -->
   </nav>
 
-	<div class="container tabs-container">
+	<div class="tabs-container">
 		<ul class="nav nav-tabs col-md-8 col-md-offset-2">
 			<li role="presentation" class="active"><a href="#brand" aria-controls="brand" role="tab" data-toggle="tab">Brand</a>
 			<li role="presentation"><a href="#category" aria-controls="category" role="tab" data-toggle="tab">Category</a>
@@ -76,155 +70,127 @@
 		<div class="tab-content">
 
 			<!-- Brand view  -->
-			<div role="tabpanel" class="tab-pane active col-md-9" id="brand">
-				<div class="container icons-container">
-					<div class="row">
+			<div role="tabpanel" class="tab-pane active col-md-12" id="brand">
 
-						<!--  Icon from http://3.bp.blogspot.com/-j79dm5eBNNA/VF9N3SmUctI/AAAAAAAAGg4/3RPKiBuC2ow/s1600/Logo%2BBic.png-->
-						<div class="card col-md-2 col-md-offset-2">
+				<!--  Icon from http://3.bp.blogspot.com/-j79dm5eBNNA/VF9N3SmUctI/AAAAAAAAGg4/3RPKiBuC2ow/s1600/Logo%2BBic.png-->
+				<div class="card col-md-2 col-md-offset-2">
 
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="card-img-top icon-image img-responsive" src="./brand_pictures/bic-logo.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Bic Brand</h4>
-							</div>
-						</div>
-
-						<!-- Icon from http://images.all-free-download.com/images/graphiclarge/faber_castell_1_135769.jpg-->
-						<div class="card col-md-2 col-md-offset-1">
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="icon-image img-responsive" src="./brand_pictures/faber-castell-logo.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Faber-Castell Brand</h4>
-							</div>
-						</div>
-
-						<!--  Icon from http://www.logotypes101.com/logos/418/FDDF832157EB6F2924A10B2FE18E83B5/paper_mate.png -->
-						<div class="card col-md-2 col-md-offset-1">
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="icon-image img-responsive" src="./brand_pictures/papermate-logo.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Papermate Brand</h4>
-							</div>
-						</div>
-
-						<div class="col-md-2"></div>
-					</div>
-
-
-					<div class="row lower-row">
-						<!--  Icon from http://3.bp.blogspot.com/-j79dm5eBNNA/VF9N3SmUctI/AAAAAAAAGg4/3RPKiBuC2ow/s1600/Logo%2BBic.png-->
-						<div class="card col-md-2 col-md-offset-2">
-
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="card-img-top icon-image img-responsive" src="./brand_pictures/pentel-logo.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Pentel Brand</h4>
-							</div>
-						</div>
-
-						<div class="col-md-1"></div>
-
-						<!-- Icon from http://images.all-free-download.com/images/graphiclarge/faber_castell_1_135769.jpg-->
-						<div class="card col-md-2">
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="icon-image img-responsive" src="./brand_pictures/pilot-logo.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Pilot Brand</h4>
-							</div>
-						</div>
-
-						<div class="col-md-1"></div>
-
-						<!--  Icon from http://www.logotypes101.com/logos/418/FDDF832157EB6F2924A10B2FE18E83B5/paper_mate.png -->
-						<div class="card col-md-2">
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="icon-image img-responsive" src="./brand_pictures/staedtler-logo.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Staedtler Brand</h4>
-							</div>
-						</div>
-
-						<div class="col-md-2"></div>
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="card-img-top icon-image img-responsive" src="./brand_pictures/bic-logo.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Bic Brand</h4>
 					</div>
 				</div>
+
+				<!-- Icon from http://images.all-free-download.com/images/graphiclarge/faber_castell_1_135769.jpg-->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./brand_pictures/faber-castell-logo.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Faber-Castell Brand</h4>
+					</div>
+				</div>
+
+				<!--  Icon from http://www.logotypes101.com/logos/418/FDDF832157EB6F2924A10B2FE18E83B5/paper_mate.png -->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./brand_pictures/papermate-logo.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Papermate Brand</h4>
+					</div>
+				</div>
+
+				<!--  Icon from http://3.bp.blogspot.com/-j79dm5eBNNA/VF9N3SmUctI/AAAAAAAAGg4/3RPKiBuC2ow/s1600/Logo%2BBic.png-->
+				<div class="card col-md-2 col-md-offset-2">
+
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="card-img-top icon-image img-responsive" src="./brand_pictures/pentel-logo.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Pentel Brand</h4>
+					</div>
+				</div>
+
+				<!-- Icon from http://images.all-free-download.com/images/graphiclarge/faber_castell_1_135769.jpg-->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./brand_pictures/pilot-logo.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Pilot Brand</h4>
+					</div>
+				</div>
+
+				<!--  Icon from http://www.logotypes101.com/logos/418/FDDF832157EB6F2924A10B2FE18E83B5/paper_mate.png -->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./brand_pictures/staedtler-logo.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Staedtler Brand</h4>
+					</div>
+				</div>
+
 			</div>
 
 			<!-- Category view  -->
 			<div role="tabpanel" class="tab-pane" id="category">
-				<div class="container icons-container id="category-icons-container"">
-					<div class="row">
 
-						<!--  Icon from https://cdn4.iconfinder.com/data/icons/ikooni-outline-seo-web/128/seo-67-512.png-->
-						<div class="card col-md-2 col-md-offset-2">
+				<!--  Icon from https://cdn4.iconfinder.com/data/icons/ikooni-outline-seo-web/128/seo-67-512.png-->
+				<div class="card col-md-2 col-md-offset-2">
 
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="card-img-top icon-image img-responsive" src="./stock_pictures/office-supplies-icon.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Office Supplies</h4>
-							</div>
-						</div>
-
-						<div class="col-md-1"></div>
-
-						<!-- Icon from http://icons.iconarchive.com/icons/iconsmind/outline/512/Eraser-icon.png -->
-						<div class="card col-md-2">
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="icon-image img-responsive" src="./stock_pictures/eraser-icon.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Erasers</h4>
-							</div>
-						</div>
-
-						<div class="col-md-1"></div>
-
-						<!--  Icon from https://cdn0.iconfinder.com/data/icons/jfk/512/notebook-512.png -->
-						<div class="card col-md-2">
-							<button type="button" class="btn btn-default btn-icon">
-								<img class="icon-image img-responsive" src="./stock_pictures/notebook-icon.png">
-							</button>
-							<div class="card-block">
-								<h4 class="card-title category">Notebooks</h4>
-							</div>
-						</div>
-
-						<div class="col-md-2"></div>
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="card-img-top icon-image img-responsive" src="./stock_pictures/office-supplies-icon.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Office Supplies</h4>
 					</div>
-
-				<div class="row lower-row">
-					<!--  Icon from https://openclipart.org/image/2400px/svg_to_png/24821/Anonymous-Pencil-icon.png -->
-					<div class="card col-md-2 col-md-offset-2">
-
-						<button type="button" class="btn btn-default btn-icon" id="pencil-icon">
-							<img class="card-img-top icon-image img-responsive" src="./stock_pictures/pencil-icon.png">
-						</button>
-						<div class="card-block">
-							<h4 class="card-title category">Pencils</h4>
-						</div>
-					</div>
-
-					<div class="col-md-1"></div>
-
-					<!-- Icon from https://d30y9cdsu7xlg0.cloudfront.net/png/36914-200.png -->
-					<div class="card col-md-2">
-						<button type="button" class="btn btn-default btn-icon">
-							<img class="icon-image img-responsive" src="./stock_pictures/tape-icon.png">
-						</button>
-						<div class="card-block">
-							<h4 class="card-title category">Tapes</h4>
-						</div>
-					</div>
-
-					<div class="col-md-3"></div>
 				</div>
+
+				<!-- Icon from http://icons.iconarchive.com/icons/iconsmind/outline/512/Eraser-icon.png -->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./stock_pictures/eraser-icon.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Erasers</h4>
+					</div>
+				</div>
+
+				<!--  Icon from https://cdn0.iconfinder.com/data/icons/jfk/512/notebook-512.png -->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./stock_pictures/notebook-icon.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Notebooks</h4>
+					</div>
+				</div>
+
+				<!--  Icon from https://openclipart.org/image/2400px/svg_to_png/24821/Anonymous-Pencil-icon.png -->
+				<div class="card col-md-2 col-md-offset-2">
+
+					<button type="button" class="btn btn-default btn-icon" id="pencil-icon">
+						<img class="card-img-top icon-image img-responsive" src="./stock_pictures/pencil-icon.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Pencils</h4>
+					</div>
+				</div>
+
+				<!-- Icon from https://d30y9cdsu7xlg0.cloudfront.net/png/36914-200.png -->
+				<div class="card col-md-2 col-md-offset-1">
+					<button type="button" class="btn btn-default btn-icon">
+						<img class="icon-image img-responsive" src="./stock_pictures/tape-icon.png">
+					</button>
+					<div class="card-block">
+						<h4 class="card-title category">Tapes</h4>
+					</div>
+				</div>
+			
 			</div>
 		</div>
 	</div>
