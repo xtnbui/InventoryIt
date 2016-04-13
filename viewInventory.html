@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
-	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
-
-	<title>InventoryIt View Inventory</title>
+    <link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
+    <title>InventoryIt View Inventory</title>
 </head>
 <body>
 
@@ -56,10 +55,117 @@
   </nav>
 
 	<script src="jquery/js/jquery-1.9.0.min.js"></script>
-    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-    <script src="jquery/js/jquery-1.12.3.min.js"></script>
-    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-    <script src="viewInventory.js"></script>
+  <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+  <script src="jquery/js/jquery-1.12.3.min.js"></script>
+  <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+  <script src="viewInventory.js"></script>
+
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">InventoryIt!</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="labelSelect.html">Select by Label</a></li>
+        <li><a href="selectColumns.html">Select by Column</a></li>
+        <li><a href="updateInventory.html">Update Inventory</a></li>
+        <li><a href="viewInventory.html">View Inventory</a></li>
+      </ul>
+      <!--
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
+
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>In Stock</th>
+            <th>Vendor</th>
+            <th>On Order</th>
+            <th>Vendor Price</th>
+        </tr>
+
+        <tr class="item">
+            <td>Bic Pencil, 12 ct</td>
+            <td>142</td>
+            <td>Bic</td>
+            <td>0</td>
+            <td>7.25</td>
+        </tr>
+     
+        <tr class="item">
+            <td>Faber-Castell Pencil, 20ct</td>
+            <td>7</td>
+            <td>Faber</td>
+            <td>0</td>
+            <td>12.50</td>
+        </tr>
+     
+        <tr class="item">
+            <td>Papermate Pencil</td>
+            <td>10</td>
+            <td>Papermate</td>
+            <td>20</td>
+            <td>0.50</td>
+        </tr>
+
+        <tr class="item">
+            <td>Pentel Pencil</td>
+            <td>14</td>
+            <td>Pentel</td>
+            <td>20</td>
+            <td>0.80</td>
+        </tr>
+
+        <tr class="item">
+            <td>Pilot Pencil</td>
+            <td>40</td>
+            <td>Pilot</td>
+            <td>0</td>
+            <td>0.50</td>
+        </tr>
+
+        <tr class="item">
+            <td>Staedtler Pencil</td>
+            <td>60</td>
+            <td>Staedtler</td>
+            <td>0</td>
+            <td>0.67</td>
+        </tr>
+
+    </table>
 
 </body>
 </html>
