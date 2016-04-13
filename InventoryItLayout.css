@@ -121,4 +121,17 @@
 
 .checkbox-inline+.checkbox-inline {
 	margin-left: 0px;
+  margin-top: 10px;
+}
+
+label.checkbox-inline {
+  margin-top: 10px;
+}
+
+.control-label {
+  margin-top: 10px;
+}
+
+.datepicker {
+  margin-top: 10px;
 }
