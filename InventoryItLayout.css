@@ -1,5 +1,6 @@
 .card {
   margin-top: 30px;
+  text-align: center;
 }
 
 .thumbnail-image{
@@ -69,7 +70,7 @@
 }
 
 .bordered {
-  border: solid grey;
+  border: solid gray;
 }
 
 .specific-height {
@@ -77,7 +78,7 @@
 }
 
 .colored-col {
-  background-color: lightgrey;
+  background-color: "light gray";
 }
 
 .right-align {
