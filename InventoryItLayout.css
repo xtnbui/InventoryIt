@@ -1,3 +1,8 @@
+.card {
+  margin-top: 30px;
+  text-align: center;
+}
+
 .thumbnail-image{
   width: 75px;
   height: 75px;
@@ -65,7 +70,7 @@
 }
 
 .bordered {
-  border: solid grey;
+  border: solid gray;
 }
 
 .specific-height {
@@ -73,7 +78,7 @@
 }
 
 .colored-col {
-  background-color: lightgrey;
+  background-color: "light gray";
 }
 
 .right-align {
@@ -95,28 +100,16 @@
 }
 
 .icon-image {
-  width: 150px;
-  height: 150px;
-}
-
-.icons-container {
-  margin-top: 50px;
+  width: 125px;
+  height: 125px;
 }
 
 .category {
   text-align: center;
 }
 
-.tabs-container {
-  margin-top: 200px;
-}
-
-.lower-row {
-  margin-top: 70px;
-}
-
 .btn-icon {
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .checkbox-inline+.checkbox-inline {
@@ -136,7 +129,19 @@ label.checkbox-inline {
   margin-top: 10px;
 }
 
-.first-view-inv-row {
-  font-weight: bold;
-  border-top: 
+#titleImage {
+  padding: 0;
+  border: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table {
+  /*width: auto;*/
+  width: 90%;
+}
+
+.extra-whitespace {
+  display: inline-block;
 }

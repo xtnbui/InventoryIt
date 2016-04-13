@@ -5,6 +5,12 @@
 	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
 
+  <script src="jquery/js/jquery-1.9.0.min.js"></script>
+    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="jquery/js/jquery-1.12.3.min.js"></script>
+    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="viewInventory.js"></script>
+
 	<title>InventoryIt View Inventory</title>
 </head>
 <body>
@@ -55,6 +61,7 @@
   </div><!-- /.container-fluid -->
   </nav>
 
+<!-- <<<<<<< HEAD
 </table>
 
 	<script src="jquery/js/jquery-1.9.0.min.js"></script>
@@ -62,6 +69,133 @@
     <script src="jquery/js/jquery-1.12.3.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script src="viewInventory.js"></script>
+======= -->
+
+<div class="tabs-container">
+	<ul class="nav nav-tabs col-md-8 col-md-offset-2">
+		<li role="presentation" class="active"><a href="#categories_panel" aria-controls="categories_panel" role="tab" data-toggle="tab">Categories</a>
+		<li role="presentation"><a href="#columns_panel" aria-controls="columns_panel" role="tab" data-toggle="tab">Columns</a>
+		</li>
+	</ul>
+
+	<div class="tab-content">
+
+		<!-- Categories choices  -->
+		<div role="tabpanel" class="tab-pane active col-md-12" id="categories_panel">
+			<form onSubmit="return submitForm()">
+				<fieldset>
+
+					<div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories">
+						<!-- <label class="col-md-2 control-label">Categories:</label> -->
+					</div>
+
+					<div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
+						<div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit" value="Submit"></div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+
+		<!-- Columns choices  -->
+		<div role="tabpanel" class="tab-pane col-md-12" id="columns_panel">
+			<form onSubmit="return submitForm()">
+				<fieldset>
+
+					<div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns">
+		        <!-- <label class="col-md-2 control-label">Select Columns:</label> -->
+		      </div>
+
+					<div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
+						<div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit" value="Submit"></div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+  <!-- <form onSubmit="return submitForm()">
+    <fieldset>
+
+      <div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories">
+        <label class="col-md-2 control-label">Categories:</label>
+      </div>
+
+      <div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns">
+        <label class="col-md-2 control-label">Select Columns:</label>
+      </div>
+
+      <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
+        <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit" value="Submit"></div>
+      </div>
+    </fieldset>
+  </form> -->
+
+  <table class="table table-striped col-md-8 col-md-offset-2">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>In Stock</th>
+          <th>Vendor</th>
+          <th>On Order</th>
+          <th>Vendor Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="item">
+          <td>Bic Pencil, 12 ct</td>
+          <td>142</td>
+          <td>Bic</td>
+          <td>0</td>
+          <td>7.25</td>
+      </tr>
+
+      <tr class="item">
+          <td>Faber-Castell Pencil, 20ct</td>
+          <td>7</td>
+          <td>Faber</td>
+          <td>0</td>
+          <td>12.50</td>
+      </tr>
+
+      <tr class="item">
+          <td>Papermate Pencil</td>
+          <td>10</td>
+          <td>Papermate</td>
+          <td>20</td>
+          <td>0.50</td>
+      </tr>
+
+      <tr class="item">
+          <td>Pentel Pencil</td>
+          <td>14</td>
+          <td>Pentel</td>
+          <td>20</td>
+          <td>0.80</td>
+      </tr>
+
+      <tr class="item">
+          <td>Pilot Pencil</td>
+          <td>40</td>
+          <td>Pilot</td>
+          <td>0</td>
+          <td>0.50</td>
+      </tr>
+
+      <tr class="item">
+          <td>Staedtler Pencil</td>
+          <td>60</td>
+          <td>Staedtler</td>
+          <td>0</td>
+          <td>0.67</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+	<div class="col-md-8 extra-whitespace">
+	</div>
+
 
 </body>
 </html>
