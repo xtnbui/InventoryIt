@@ -136,3 +136,7 @@ label.checkbox-inline {
   margin-left: auto;
   margin-right: auto;
 }
+
+.table {
+  width: auto;
+}
