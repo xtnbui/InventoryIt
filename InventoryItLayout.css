@@ -100,8 +100,8 @@
 }
 
 .icon-image {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
 .category {
@@ -109,7 +109,7 @@
 }
 
 .btn-icon {
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .checkbox-inline+.checkbox-inline {
