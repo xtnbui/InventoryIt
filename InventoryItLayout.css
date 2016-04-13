@@ -135,3 +135,11 @@ label.checkbox-inline {
 .datepicker {
   margin-top: 10px;
 }
+
+#titleImage {
+  padding: 0;
+  border: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
