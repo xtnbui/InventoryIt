@@ -35,10 +35,10 @@ $(document).ready(function() {
 
 		for (var i=0; i<labelText.length; i++) {
 			var newElt = $("<label>", {
-				"class": "checkbox-inline col-md-1 ",
+				"class": "checkbox-inline col-md-3",
 				"text": labelText[i],
 				"for": labelText[i],
-				"margin": "0px",
+				"margin-top": "10px",
 			});
 
 			var newCheckbox = $("<input>", {

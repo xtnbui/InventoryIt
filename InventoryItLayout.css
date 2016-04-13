@@ -116,10 +116,27 @@
 }
 
 .btn-icon {
-  width: 132px;
   min-height: 120px;
 }
 
 .checkbox-inline+.checkbox-inline {
 	margin-left: 0px;
+  margin-top: 10px;
+}
+
+label.checkbox-inline {
+  margin-top: 10px;
+}
+
+.control-label {
+  margin-top: 10px;
+}
+
+.datepicker {
+  margin-top: 10px;
+}
+
+.first-view-inv-row {
+  font-weight: bold;
+  border-top: 
 }
