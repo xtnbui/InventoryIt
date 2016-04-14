@@ -106,6 +106,7 @@
 
 .category {
   text-align: center;
+  font-size: 20px;
 }
 
 .btn-icon {
@@ -152,7 +153,7 @@ label.checkbox-inline {
   background-color: #1A5B92;
 }
 
-.btn {
+.btn-text {
   background-color: #1A5B92;
   color: white;
 }
