@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	$.noConflict();
 
 	// Set datepicker default date
 	function setDefaultDate() {

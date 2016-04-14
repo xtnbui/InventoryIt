@@ -1,16 +1,4 @@
 $(document).ready(function() {
-	$.noConflict();
-
-	// Set datepicker default date
-	function setDefaultDate() {
-		var today = new Date();
-		$(".datepicker").val($.datepicker.formatDate('mm/dd/yy', today));
-	}
-
-	setDefaultDate();
-	$(".datepicker").datepicker({
-		format: "mm/dd/yyyy",
-	});
 
 	// Generate label text for checkboxes
 	function generateCheckboxLabelText(type) {
