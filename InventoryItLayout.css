@@ -7,13 +7,6 @@
   margin-top: 15px;
 }
 
-#update-inventory-header {
-  background-color: white;
-  opacity: 1;
-  position: fixed;
-  height: 150px;
-}
-
 .thumbnail-image{
   width: 75px;
   height: 75px;
@@ -68,8 +61,8 @@
 }
 
 .progress {
-  width: 90%;
-  margin-bottom: 0 !important;
+  width: 70%;
+  margin-bottom: 10px !important;
 }
 
 .pencil-name {
@@ -167,4 +160,9 @@ label.checkbox-inline {
 .btn-text {
   background-color: #1A5B92;
   color: white;
+}
+
+
+td {
+  position: relative;
 }

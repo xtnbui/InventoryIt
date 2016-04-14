@@ -57,212 +57,157 @@
   </div><!-- /.container-fluid -->
   </nav>
 
-  	<div class="col-md-12" id="update-inventory-header">
-  		<div class="col-md-4 col-md-offset-4"><h3>Name</h3></div>
-  		<div class="col-md-1"><h3>Qty.</h3></div>
-  		<div class="col-md-1">
-  			<button type="button" class="btn btn-primary btn-md btn-text" id="save-all">Save All</button>
-  		</div>
-  	</div>
+	<table class="table table-striped col-md-8 col-md-offset-2">
+		<thead>
+			<tr>
+				<th width="10%"></th> <!-- Image Column -->
+				<th width="70%">Name</th> <!-- Name and Progress Bar Column -->
+				<th width="10%">Qty.</th> <!-- Qty Column -->
+				<th width="10%"><button type="button" class="btn btn-primary btn-md btn-text" id="save-all">Save All</button></th> <!-- Save Button Column -->
+			</tr>
+		</thead>
 
-		<div class="container overall-container">
+		<tbody>
 
-			<!--  Top Row with Name and Qty-->
-			<div class="row same-height">
-				<div class="col-md-4 col-md-offset-4"><h3>Name</h3></div>
-				<div class="col-md-2"><h3 class="right-align">Qty</h3></div>
-			</div>
-
-			<div class="row specific-height">
-			</div>
-
-		<!-- ITEMS -->
-		<div class="row">
-		<div id="items-container" class="container scrollable">
 			<!--  Bic Pencil-->
-			<div class="row same-height item-row">
-				<!--  image column-->
-				<div class="col-md-2 col-md-offset-2 no-padding">
+			<tr>
+				<td width="10%">
 					<!--  image from: http://www.target.com/p/bic-shimmers-26ct-0-7mm-mechanical-pencil/-/A-11281363#prodSlot=_1_2-->
 					<img class="thumbnail-image img-responsive" src="./pencil_pictures/bic-26ct.jpeg">
-				</div>
-
-				<!--  name and progress bar column-->
-				<div class="col-md-4">
-
-					<h3 class="pencil-name top">Bic Pencil, 26ct.</h3>
+				</td>
+				<td width="70%">
+					<p class="pencil-name top no-padding">Bic Pencil, 26ct.</p>
 					<!-- <a class="pencil-name top" href="">Bic Pencil, 12ct.</a> -->
 					<div class="progress bottom progress-size">
 						<div class="progress-bar progress-color" role="progressbar" aria-valuenow="142"	aria-valuemin="0" aria-valuemax="150" style="width:95%">
 							<span class="sr-only">95% Complete</span>
 						</div>
 					</div>
-
-				</div>
-
-				<!--  quantity and save btn column-->
-				<div class="col-md-2">
-					<textarea wrap="off" id="inputted_quantity-Bic" class="form-control top right-horizontally inputted_quantity">142</textarea>
-					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally btn-text">Save</button>
-				</div>
-
-			</div>
+				</td>
+				<td width="10%">
+					<textarea wrap="off" id="inputted_quantity-Bic" class="form-control inputted_quantity">142</textarea>
+				</td>
+				<td width="10%">
+					<button type="button" class="btn btn-primary btn-sm btn-text">Save</button>
+				</td>
+			</tr>
 
 			<!--  Faber-Castell Pencil-->
-			<div class="row same-height item-row">
-				<!--  image column-->
-				<div class="col-md-2 col-md-offset-2 no-padding">
+			<tr>
+				<td width="10%">
 					<!--  image from http://www.dickblick.com/products/faber-castell-9000-pencils/?clickTracking=true&wmcp=pla&wmcid=items&wmckw=20450-0126&gclid=Cj0KEQjw3Le4BRDxx5bk4aDn9t4BEiQAfmxQGYtkU9-9Q6T6OltdFQLImvojUoMY1u2VaZppu0FrhDoaAsrn8P8HAQ-->
 					<img class="thumbnail-image img-responsive" src="./pencil_pictures/faber-castell-12ct.jpg">
-				</div>
-
-				<!--  name and progress bar column-->
-				<div class="col-md-4">
-					<h3 class="pencil-name top">Faber-Castell Pencil, 12ct.</h3>
+				</td>
+				<td width="70%">
+					<p class="pencil-name top no-padding">Faber-Castell Pencil, 12ct.</p>
 					<!-- <a class="pencil-name top" href="">Faber-Castell Pencil, 20ct.</a> -->
 					<div class="progress bottom progress-size">
 						<div class="progress-bar progress-color" role="progressbar" aria-valuenow="7"	aria-valuemin="0" aria-valuemax="100" style="width:7%">
 							<span class="sr-only">7% Complete</span>
 						</div>
 					</div>
-
-				</div>
-
-				<!--  quantity and save btn column-->
-				<div class="col-md-2">
-					<textarea id="inputted_quantity-Faber-Castell" class="form-control top right-horizontally inputted_quantity">7</textarea>
-					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally btn-text">Save</button>
-				</div>
-
-			</div>
+				</td>
+				<td width="10%">
+					<textarea wrap="off" id="inputted_quantity-Faber-Castell" class="form-control inputted_quantity">7</textarea>
+				</td>
+				<td width="10%">
+					<button type="button" class="btn btn-primary btn-sm btn-text">Save</button>
+				</td>
+			</tr>
 
 			<!--  Papermate Pencil-->
-			<div class="row same-height item-row">
-				<!--  image column-->
-				<div class="col-md-2 col-md-offset-2 no-padding">
+			<tr>
+				<td width="10%">
 					<!--  image from: http://www.staples.com/Paper-Mate-ClearPoint-Mechanical-Pencil-Starter-Set-07mm-2-Pack/product_615721?cid=PS:GooglePLAs:615721&ci_src=17588969&ci_sku=615721&KPID=615721&lsft=cid:PS-_-GooglePLAs-_-615721,kpid:615721,adtype:pla_multichannel,channel:online&gclid=Cj0KEQjw3Le4BRDxx5bk4aDn9t4BEiQAfmxQGX9Jt-bTtCXna1S13V61TbdMli9c6cqOi0P1adw8_bQaAmp58P8HAQ-->
 					<img class="thumbnail-image img-responsive" src="./pencil_pictures/papermate-pencil.jpeg">
-				</div>
-
-				<!--  name and progress bar column-->
-				<div class="col-md-4">
-
-					<h3 class="pencil-name top">Papermate Pencil</h3>
+				</td>
+				<td width="70%">
+					<p class="pencil-name top no-padding">Papermate Pencil</p>
 					<!-- <a class="pencil-name top" href="">Papermate Pencil</a> -->
 					<div class="progress bottom progress-size">
 						<div class="progress-bar progress-color" role="progressbar" aria-valuenow="10"	aria-valuemin="0" aria-valuemax="100" style="width:10%">
 							<span class="sr-only">10% Complete</span>
 						</div>
 					</div>
-
-				</div>
-
-				<!--  quantity and save btn column-->
-				<div class="col-md-2">
-					<textarea id="inputted_quantity-Papermate" class="form-control top right-horizontally inputted_quantity">10</textarea>
-					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally btn-text">Save</button>
-				</div>
-
-			</div>
-
+				</td>
+				<td width="10%">
+					<textarea wrap="off" id="inputted_quantity-Papermate" class="form-control inputted_quantity">10</textarea>
+				</td>
+				<td width="10%">
+					<button type="button" class="btn btn-primary btn-sm btn-text">Save</button>
+				</td>
+			</tr>
 
 			<!--  Pentel Pencil-->
-			<div class="row same-height item-row">
-				<!--  image column-->
-				<div class="col-md-2 col-md-offset-2 no-padding">
+			<tr>
+				<td width="10%">
 					<!--  image from: http://www.ldproducts.com/pentel-sharp-automatic-pencil-2.html?gclid=Cj0KEQjw3Le4BRDxx5bk4aDn9t4BEiQAfmxQGd4C3EMbZLIHQBH1QnvnBnFGt_rImy___XpxohNban0aAhBs8P8HAQ&mkwid=sMtgYj0pP_dc&pcrid=51244908932&pkw=&pmt=&plc=?kid=PLA:google:Criteo+-+US+-+Office+Supplies&ef_id=U@ORbAAABdoUMIy0:20160414011536:s-->
 					<img class="thumbnail-image img-responsive" src="./pencil_pictures/pentel-pencil.jpg">
-				</div>
-
-				<!--  name and progress bar column-->
-				<div class="col-md-4">
-
-					<h3 class="pencil-name top">Pentel Pencil</h3>
+				</td>
+				<td width="70%">
+					<p class="pencil-name top no-padding">Pentel Pencil</p>
 					<!-- <a class="pencil-name top" href="">Pentel Pencil</a> -->
 					<div class="progress bottom progress-size">
 						<div class="progress-bar progress-color" role="progressbar" aria-valuenow="14"	aria-valuemin="0" aria-valuemax="100" style="width:14%">
 							<span class="sr-only">14% Complete</span>
 						</div>
 					</div>
-
-				</div>
-
-				<!--  quantity and save btn column-->
-				<div class="col-md-2">
-					<textarea id="inputted_quantity-Pentel" class="form-control top right-horizontally inputted_quantity">14</textarea>
-					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally btn-text">Save</button>
-				</div>
-
-			</div>
+				</td>
+				<td width="10%">
+					<textarea wrap="off" id="inputted_quantity-Pentel" class="form-control inputted_quantity">14</textarea>
+				</td>
+				<td width="10%">
+					<button type="button" class="btn btn-primary btn-sm btn-text">Save</button>
+				</td>
+			</tr>
 
 			<!--  Pilot Pencil-->
-			<div class="row same-height item-row">
-				<!--  image column-->
-				<div class="col-md-2 col-md-offset-2 no-padding">
+			<tr>
+				<td width="10%">
 					<!--  image from http://www.staples.com/Pilot-G-2-Mechanical-Pencils-7mm-Dozen/product_608915?cid=PS:GooglePLAs:608915&ci_src=17588969&ci_sku=608915&KPID=608915&lsft=cid:PS-_-GooglePLAs-_-608915,kpid:608915,adtype:pla,channel:online&gclid=Cj0KEQjw3Le4BRDxx5bk4aDn9t4BEiQAfmxQGW9NlkZd_uRNXL6RHBbxINgduQGOs1rltzEE5cTVCREaAu168P8HAQ-->
 					<img class="thumbnail-image img-responsive" src="./pencil_pictures/pilot-pencil.jpeg">
-				</div>
-
-				<!--  name and progress bar column-->
-				<div class="col-md-4">
-
-					<h3 class="pencil-name top">Pilot Pencil</h3>
+				</td>
+				<td width="70%">
+					<p class="pencil-name top no-padding">Pilot Pencil</p>
 					<!-- <a class="pencil-name top" href="">Pilot Pencil</a> -->
 					<div class="progress bottom progress-size">
 						<div class="progress-bar progress-color" role="progressbar" aria-valuenow="40"	aria-valuemin="0" aria-valuemax="100" style="width:40%">
 							<span class="sr-only">40% Complete</span>
 						</div>
 					</div>
-
-				</div>
-
-				<!--  quantity and save btn column-->
-				<div class="col-md-2">
-					<textarea id="inputted_quantity-Pilot" class="form-control top right-horizontally inputted_quantity">40</textarea>
-					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally btn-text">Save</button>
-				</div>
-
-			</div>
+				</td>
+				<td width="10%">
+					<textarea wrap="off" id="inputted_quantity-Pilot" class="form-control inputted_quantity">40</textarea>
+				</td>
+				<td width="10%">
+					<button type="button" class="btn btn-primary btn-sm btn-text">Save</button>
+				</td>
+			</tr>
 
 			<!--  Staedtler Pencil-->
-			<div class="row same-height item-row">
-				<!--  image column-->
-				<div class="col-md-2 col-md-offset-2 no-padding">
+			<tr>
+				<td width="10%">
 					<img class="thumbnail-image img-responsive" src="./pencil_pictures/staedtler-12ct.jpg">
-				</div>
-
-				<!--  name and progress bar column-->
-				<div class="col-md-4">
-
-					<h3 class="pencil-name top">Staedtler Pencil, 12ct.</h3>
+				</td>
+				<td width="70%">
+					<p class="pencil-name top no-padding">Staedtler Pencil, 12ct.</p>
 					<!-- <a class="pencil-name top" href="">Staedtler Pencil</a> -->
 					<div class="progress bottom progress-size">
 						<div class="progress-bar progress-color" role="progressbar" aria-valuenow="60"	aria-valuemin="0" aria-valuemax="100" style="width:60%">
 							<span class="sr-only">60% Complete</span>
 						</div>
 					</div>
+				</td>
+				<td width="10%">
+					<textarea wrap="off" id="inputted_quantity-Staedtler" class="form-control inputted_quantity">60</textarea>
+				</td>
+				<td width="10%">
+					<button type="button" class="btn btn-primary btn-sm btn-text">Save</button>
+				</td>
+			</tr>
 
-				</div>
-
-				<!--  quantity and save btn column-->
-				<div class="col-md-2">
-					<textarea id="inputted_quantity-Staedtler" class="form-control top right-horizontally inputted_quantity">60</textarea>
-					<button type="button" class="btn btn-primary btn-sm bottom right-horizontally btn-text">Save</button>
-				</div>
-
-			</div>
-
-
-		</div>
-</div>
-
-	<!--  Lower row with Save All-->
-		<div class="row specific-height">
-			<div class="col-md-2 col-md-offset-8 lower-col">
-				<button type="button" class="btn btn-primary btn-md bottom right-horizontally btn-text">Save All</button>
-			</div>
-		</div>
-</div>
+		</tbody>
+	</table>					
 
 </body>
 </html>
