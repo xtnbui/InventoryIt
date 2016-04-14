@@ -143,3 +143,16 @@ label.checkbox-inline {
   margin-top: 2%;
 
 }
+
+.progress-size {
+  height: 20%;
+}
+
+.progress-color {
+  background-color: #1A5B92;
+}
+
+.btn {
+  background-color: #1A5B92;
+  color: white;
+}
