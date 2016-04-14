@@ -142,8 +142,9 @@ label.checkbox-inline {
   margin-top: 10px;
 }
 
-.datepicker {
+.ui-datepicker {
   margin-top: 10px;
+  background: white;
 }
 
 .table {
@@ -177,7 +178,7 @@ th {
 }
 
 #quantity {
-  text-align: center;
+  text-align: left;
   font-family: 'Orienta', sans-serif;
 
 }
