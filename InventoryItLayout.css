@@ -1,3 +1,19 @@
+html {
+font-family: 'Orienta', sans-serif;
+}
+
+body {
+font-family: 'Orienta', sans-serif;
+}
+
+h1 {
+font-family: 'Sirin Stencil', cursive;  
+text-align: center;  
+  font-size: 72pt;
+}
+.navbar-header {
+font-family: 'Sirin Stencil', cursive;
+}
 .card {
   margin-top: 30px;
   text-align: center;
