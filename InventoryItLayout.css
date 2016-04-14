@@ -6,7 +6,7 @@
 .thumbnail-image{
   width: 75px;
   height: 75px;
-  border: solid black;
+  border: solid 1px grey;
   padding: 5px;
   /*from https://www.w3.org/Style/Examples/007/center.en.html**/
   display: block;
@@ -48,7 +48,7 @@
 
 .top {
   position: absolute;
-  top: 0;
+  margin-top: 0;
 }
 
 /*centering partially from https://www.w3.org/Style/Examples/007/center.en.html*/
@@ -62,7 +62,7 @@
 }
 
 .pencil-name {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .no-padding {
@@ -139,9 +139,7 @@ label.checkbox-inline {
 
 .table {
   /*width: auto;*/
-  width: 90%;
-}
+  width: 67%;
+  margin-top: 2%;
 
-.extra-whitespace {
-  display: inline-block;
 }
