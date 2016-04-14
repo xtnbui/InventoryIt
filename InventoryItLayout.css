@@ -3,6 +3,17 @@
   text-align: center;
 }
 
+#save-all {
+  margin-top: 15px;
+}
+
+#update-inventory-header {
+  background-color: white;
+  opacity: 1;
+  position: fixed;
+  height: 150px;
+}
+
 .thumbnail-image{
   width: 75px;
   height: 75px;
