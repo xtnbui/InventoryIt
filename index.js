@@ -5,6 +5,6 @@ $(document).ready(function() {
   });
 
   $("#update-inventory-button").click(function(event) {
-    window.location.href = "./labelSelect.html";
+    window.location.href = "labelSelect.html";
   });
 });
