@@ -34,153 +34,115 @@
         <li><a href="labelSelect.html">Update Inventory</a></li>
         <li><a href="selectColumns.html">View Inventory</a></li>
       </ul>
-      <!--
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
   </nav>
 
-<div class="tabs-container">
-  <ul class="nav nav-tabs col-md-8 col-md-offset-2">
-    <li role="presentation" class="active"><a href="#categories_panel" aria-controls="categories_panel" role="tab" data-toggle="tab">Categories</a>
-    <li role="presentation"><a href="#columns_panel" aria-controls="columns_panel" role="tab" data-toggle="tab">Columns</a>
-    </li>
-  </ul>
+  <div class="col-md-8 col-md-offset-2" id="white-background-div"></div>
 
-  <div class="tab-content">
+  <div class="tabs-container">
+    <ul class="nav nav-tabs col-md-8 col-md-offset-2" id="alltabs">
+      <li role="presentation"><a href="#categories_panel" aria-controls="categories_panel" role="tab" data-toggle="tab">Categories</a>
+      <li role="presentation"><a href="#columns_panel" aria-controls="columns_panel" role="tab" data-toggle="tab">Columns</a>
+      </li>
+    </ul>
 
-    <!-- Categories choices  -->
-    <div role="tabpanel" class="tab-pane active col-md-12" id="categories_panel">
-      <form onSubmit="return submitForm()">
-        <fieldset>
+    <div class="tab-content">
 
-          <div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories">
-            <!-- <label class="col-md-2 control-label">Categories:</label> -->
-          </div>
+      <!-- Categories choices  -->
+      <div role="tabpanel" class="tab-pane col-md-12" id="categories_panel">
+        <form onSubmit="return submitForm()">
+          <fieldset>
 
-          <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
-            <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
-          </div>
-        </fieldset>
-      </form>
-    </div>
+            <div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories">
+            </div>
 
-    <!-- Columns choices  -->
-    <div role="tabpanel" class="tab-pane col-md-12" id="columns_panel">
-      <form onSubmit="return submitForm()">
-        <fieldset>
+            <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
+              <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
 
-          <div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns">
-            <!-- <label class="col-md-2 control-label">Select Columns:</label> -->
-          </div>
+      <!-- Columns choices  -->
+      <div role="tabpanel" class="tab-pane col-md-12" id="columns_panel">
+        <form onSubmit="return submitForm()">
+          <fieldset>
 
-          <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
-            <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
-          </div>
-        </fieldset>
-      </form>
+            <div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns">
+            </div>
+
+            <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
+              <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- <form onSubmit="return submitForm()">
-    <fieldset>
+  <table class="table table-striped col-md-8 col-md-offset-2">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>In Stock</th>
+          <th>Vendor</th>
+          <th>On Order</th>
+          <th>Vendor Price</th>
+      </tr>
+    </thead>
 
-      <div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories">
-        <label class="col-md-2 control-label">Categories:</label>
-      </div>
+    <tbody>
+      <tr class="item">
+          <td>Bic Pencil, 26 ct.</td>
+          <td>142</td>
+          <td>Bic</td>
+          <td>0</td>
+          <td>7.25</td>
+      </tr>
 
-      <div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns">
-        <label class="col-md-2 control-label">Select Columns:</label>
-      </div>
+      <tr class="item">
+          <td>Faber-Castell Pencil, 12ct.</td>
+          <td>7</td>
+          <td>Faber</td>
+          <td>0</td>
+          <td>12.50</td>
+      </tr>
 
-      <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
-        <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit" value="Submit"></div>
-      </div>
-    </fieldset>
-  </form> -->
+      <tr class="item">
+          <td>Papermate Pencil</td>
+          <td>10</td>
+          <td>Papermate</td>
+          <td>20</td>
+          <td>0.50</td>
+      </tr>
 
-<table class="table table-striped col-md-8 col-md-offset-2">
-  <thead>
-    <tr>
-        <th>Name</th>
-        <th>In Stock</th>
-        <th>Vendor</th>
-        <th>On Order</th>
-        <th>Vendor Price</th>
-    </tr>
-  </thead>
+      <tr class="item">
+          <td>Pentel Pencil</td>
+          <td>14</td>
+          <td>Pentel</td>
+          <td>20</td>
+          <td>0.80</td>
+      </tr>
 
-  <tbody>
-    <tr class="item">
-        <td>Bic Pencil, 26 ct.</td>
-        <td>142</td>
-        <td>Bic</td>
-        <td>0</td>
-        <td>7.25</td>
-    </tr>
+      <tr class="item">
+          <td>Pilot Pencil</td>
+          <td>40</td>
+          <td>Pilot</td>
+          <td>0</td>
+          <td>0.50</td>
+      </tr>
 
-    <tr class="item">
-        <td>Faber-Castell Pencil, 12ct.</td>
-        <td>7</td>
-        <td>Faber</td>
-        <td>0</td>
-        <td>12.50</td>
-    </tr>
+      <tr class="item">
+          <td>Staedtler Pencil, 12ct.</td>
+          <td>60</td>
+          <td>Staedtler</td>
+          <td>0</td>
+          <td>0.67</td>
+      </tr>
+    </tbody>
 
-    <tr class="item">
-        <td>Papermate Pencil</td>
-        <td>10</td>
-        <td>Papermate</td>
-        <td>20</td>
-        <td>0.50</td>
-    </tr>
-
-    <tr class="item">
-        <td>Pentel Pencil</td>
-        <td>14</td>
-        <td>Pentel</td>
-        <td>20</td>
-        <td>0.80</td>
-    </tr>
-
-    <tr class="item">
-        <td>Pilot Pencil</td>
-        <td>40</td>
-        <td>Pilot</td>
-        <td>0</td>
-        <td>0.50</td>
-    </tr>
-
-    <tr class="item">
-        <td>Staedtler Pencil, 12ct.</td>
-        <td>60</td>
-        <td>Staedtler</td>
-        <td>0</td>
-        <td>0.67</td>
-    </tr>
-  </tbody>
-
-</table>
+  </table>
 
 
 </body>

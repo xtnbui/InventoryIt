@@ -1,19 +1,33 @@
+/* Font selection, title, navbar, white background content div */
 html {
-font-family: 'Orienta', sans-serif;
+  font-family: 'Orienta', sans-serif;
 }
 
 body {
-font-family: 'Orienta', sans-serif;
+  font-family: 'Orienta', sans-serif;
+  background-color: #D7EAFA;
 }
 
 h1 {
   font-family: 'Sirin Stencil', cursive;  
   text-align: center;  
   font-size: 72pt;
+  margin-bottom: 75px;
 }
+
 .navbar-header {
 font-family: 'Sirin Stencil', cursive;
 }
+
+#white-background-div {
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  background-color: white;
+  z-index: -1;
+}
+
+
 .card {
   margin-top: 30px;
   text-align: center;

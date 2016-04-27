@@ -60,15 +60,19 @@ $(document).ready(function() {
 		}
 	});
 
+	//click handler to show/hide tabs of categories and columns
+	// Source: http://stackoverflow.com/questions/14073019/show-hide-twitter-bootstrap-tabs
+	$('#alltabs a').click(function(e) {
+	    var tab = $(this);
+	    if(tab.parent('li').hasClass('active')){
+	        window.setTimeout(function(){
+	            $(".tab-pane").removeClass('active');
+	            tab.parent('li').removeClass('active');
+	            tab.blur();
+	        });
+	    }
+});
 
-	//click handlers to show tabs of categories and columns
-	$("#categories_panel a").click(function(event) {
-		$(this).tab('show');
-	});
-
-	$("#columns_panel a").click(function(event) {
-		$(this).tab('show');
-	});
 
 });
 

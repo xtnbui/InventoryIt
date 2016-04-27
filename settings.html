@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-	SOURCES:
-		http://stackoverflow.com/questions/23073053/datepicker-set-default-date
--->
 <html>
 <head>
   <link href='https://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
@@ -10,13 +6,13 @@
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" integrity="sha256-oTyWrNiP6Qftu4vs2g0RPCKr3g1a6QTlITNgoebxRc4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
-  <script src="selectColumns.js"></script>
+  <script src="settings.js"></script>
 
-	<title>InventoryIt View Inventory Column Select</title>
+	<title>InventoryIt</title>
 </head>
 <body>
+
 	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,27 +37,6 @@
   </nav>
 
   <div class="col-md-8 col-md-offset-2" id="white-background-div"></div>
-
-	<form onSubmit="return submitForm()">
-		<fieldset>
-			<div class="form-group col-md-8 col-md-offset-2 no-padding" id="date">
-				<label class="col-md-2 control-label">Date:</label>
-				<div class="col-md-1"><input class="datepicker"></div>
-			</div>
-
-			<div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories">
-				<label class="col-md-2 control-label">Categories:</label>
-			</div>
-
-			<div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns">
-				<label class="col-md-2 control-label">Select Columns:</label>
-			</div>
-
-			<div class="form-group col-md-8 col-md-offset-2 no-padding" id="btn-submit">
-				<div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
-			</div>
-		</fieldset>
-	</form>
 
 </body>
 </html>
