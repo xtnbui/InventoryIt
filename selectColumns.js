@@ -14,7 +14,6 @@ $(document).ready(function() {
 	// Generate checkbox elements
 	function makeCategorySelectionCheckboxes(type) {
 		var labelText = generateCheckboxLabelText(type);
-		labelText.push("Select All");
 		
 		var selectionDiv = $("<div>", {
 			"class": "col-md-10",
@@ -36,16 +35,11 @@ $(document).ready(function() {
 				"name": labelText[i],
 			});
 
-			if (labelText[i] == "Select All") {
-				newCheckbox.addClass("checkAll");
-				newCheckbox.prop("id", type);
-			} 
-
 			newElt.prepend(newCheckbox);
 			selectionDiv.append(newElt);
 		}
 
-		$("#"+type).append(selectionDiv);
+		$("#"+type+"-div").append(selectionDiv);
 	}
 
 	makeCategorySelectionCheckboxes("categories");
