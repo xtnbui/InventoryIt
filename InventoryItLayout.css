@@ -200,3 +200,7 @@ th {
 .pencil-name {
   font-size: 18px;
 }
+
+.nav-tabs {
+  padding-left: 15px;
+}
