@@ -5,7 +5,7 @@ html {
 
 body {
   font-family: 'Orienta', sans-serif;
-  background-color: #D7EAFA;
+  background-color: #000010;
 }
 
 h1 {
@@ -30,7 +30,7 @@ font-family: 'Sirin Stencil', cursive;
   position: absolute;
   background-color: white;
   z-index: -1;
-  box-shadow: 12px 0 5px -8px #999999, -12px 0 5px -8px #999999;
+  /* box-shadow: 12px 0 5px -8px #999999, -12px 0 5px -8px #999999; */
 }
 
 

@@ -1,0 +1,73 @@
+{
+	"Name": {
+		"Bic Pencil, 26ct": {
+			"SKU":"001", 
+			"Brand":"Bic", 
+			"Vendor":"Bic", 
+			"In Stock":"142", 
+			"Unit Price":"750", 
+			"Vendor Price":"725", 
+			"Max Quantity":"150"
+		},
+		"Faber-Castell Pencil, 12ct": {
+			"SKU":"002", 
+			"Brand":"Faber-Castell", 
+			"Vendor":"Faber", 
+			"In Stock":"7", 
+			"Unit Price":"1400", 
+			"Vendor Price":"1250", 
+			"Max Quantity":"100"
+		},
+		"Papermate Pencil": {
+			"SKU":"003", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"10", 
+			"Unit Price":"100", 
+			"Vendor Price":"050", 
+			"Max Quantity":"30"
+		},
+		"Pentel Pencil": {
+			"SKU":"004", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"14", 
+			"Unit Price":"150", 
+			"Vendor Price":"080", 
+			"Max Quantity":"50"
+		},
+		"Pilot Pencil": {
+			"SKU":"005", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"40", 
+			"Unit Price":"100", 
+			"Vendor Price":"050", 
+			"Max Quantity":"80"
+		},
+		"Staedtler Pencil, 12ct": {
+			"SKU":"006", 
+			"Brand":"Staedtler", 
+			"Vendor":"Staedtler", 
+			"In Stock":"60", 
+			"Unit Price":"125", 
+			"Vendor Price":"067", 
+			"Max Quantity":"100"
+		}
+	},
+	"Brand": [
+		"Bic", 
+		"Faber-Castell", 
+		"Papermate", 
+		"Pentel", 
+		"Pilot", 
+		"Staedtler"
+	],
+	"Category": [
+		"Office Supplies", 
+		"Erasers", 
+		"Notebooks",
+		"Pencils",
+		"Tapes"
+	]
+}
