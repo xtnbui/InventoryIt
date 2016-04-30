@@ -1,0 +1,172 @@
+{
+	"Name": {
+		"Bic Pencil, 26ct": {
+			"SKU":"001", 
+			"Brand":"Bic", 
+			"Vendor":"Bic", 
+			"In Stock":"142", 
+			"Unit Price":"750", 
+			"Vendor Price":"725", 
+			"Max Quantity":"150"
+		},
+		"Faber-Castell Pencil, 12ct": {
+			"SKU":"002", 
+			"Brand":"Faber-Castell", 
+			"Vendor":"Faber", 
+			"In Stock":"7", 
+			"Unit Price":"1400", 
+			"Vendor Price":"1250", 
+			"Max Quantity":"100"
+		},
+		"Papermate Pencil": {
+			"SKU":"003", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"10", 
+			"Unit Price":"100", 
+			"Vendor Price":"050", 
+			"Max Quantity":"30"
+		},
+		"Pentel Pencil": {
+			"SKU":"004", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"14", 
+			"Unit Price":"150", 
+			"Vendor Price":"080", 
+			"Max Quantity":"50"
+		},
+		"Pilot Pencil": {
+			"SKU":"005", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"40", 
+			"Unit Price":"100", 
+			"Vendor Price":"050", 
+			"Max Quantity":"80"
+		},
+		"Staedtler Pencil, 12ct": {
+			"SKU":"006", 
+			"Brand":"Staedtler", 
+			"Vendor":"Staedtler", 
+			"In Stock":"60", 
+			"Unit Price":"125", 
+			"Vendor Price":"067", 
+			"Max Quantity":"100"
+		},
+		"Papermate Black Pearl Eraser": {
+			"SKU":"007", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"17", 
+			"Unit Price":"5.00", 
+			"Vendor Price":"2.50", 
+			"Max Quantity":"25"
+		},
+		"Papermate Pink Pearl Eraser": {
+			"SKU":"008", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"21", 
+			"Unit Price":"3.00", 
+			"Vendor Price":"1.50", 
+			"Max Quantity":"50"
+		},
+		"Papermate White Pearl Eraser": {
+			"SKU":"009", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"11", 
+			"Unit Price":"3.00", 
+			"Vendor Price":"2.00", 
+			"Max Quantity":"50"
+		},
+		"Pentel Hi-Polymer Eraser Colors - Assorted 4-Pack": {
+			"SKU":"010", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"17", 
+			"Unit Price":"3.56", 
+			"Vendor Price":"3.20", 
+			"Max Quantity":"20"
+		},
+		"Pentel Hi-Polymer Eraser": {
+			"SKU":"010", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"7", 
+			"Unit Price":"1.69", 
+			"Vendor Price":"1.25", 
+			"Max Quantity":"50"
+		},
+		"Pentel Hi-Polymer Eraser 3 Pack": {
+			"SKU":"011", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"14", 
+			"Unit Price":"5.07", 
+			"Vendor Price":"4.40", 
+			"Max Quantity":"25"
+		},
+		"Pilot G2 Blue 12Pack": {
+			"SKU":"012", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"7", 
+			"Unit Price":"26.40", 
+			"Vendor Price":"24.00", 
+			"Max Quantity":"25"
+		},
+		"Pilot G2 Black 2Pack": {
+			"SKU":"013", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"41", 
+			"Unit Price":"4.55", 
+			"Vendor Price":"2.75", 
+			"Max Quantity":"70"
+		},
+		"Pilot G2 Assorted Colors 4Pack": {
+			"SKU":"014", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"27", 
+			"Unit Price":"8.91", 
+			"Vendor Price":"7.50", 
+			"Max Quantity":"40"
+		},
+		"Pilot VBall Black 12Pack": {
+			"SKU":"015", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"19", 
+			"Unit Price":"29.52", 
+			"Vendor Price":"25.00", 
+			"Max Quantity":"25"
+		},
+		"Pilot Mr Metropolitan Fountain": {
+			"SKU":"016", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"10", 
+			"Unit Price":"18.75", 
+			"Vendor Price":"14.50", 
+			"Max Quantity":"6"
+		},
+	},
+	"Brand": [
+		"Bic", 
+		"Faber-Castell", 
+		"Papermate", 
+		"Pentel", 
+		"Pilot", 
+		"Staedtler"
+	],
+	"Category": [
+		"Office Supplies", 
+		"Erasers", 
+		"Notebooks",
+		"Pencils",
+		"Tapes"
+	]
+}
