@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	  var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
 
 	// Generate label text for checkboxes
 	function generateCheckboxLabelText(type) {
@@ -53,6 +54,45 @@ $(document).ready(function() {
 			$($(elts[i])).prop("checked", $(this).prop("checked"));
 		}
 	});
+
+	function createTableHeaders(columns) {
+		var table = document.getElementById("table");
+		var tableHead = document.createElement('THEAD');
+		table.appendChild(tableHead);
+		var head_tr = document.createElement('TR');
+		tableHead.appendChild(head_tr);
+		for (var i = 0; i < columns.length; i++) {
+  			var header = document.createElement('TH');
+			header.innerHTML = columns[i]
+			head_tr.appendChild(header)
+		}
+	}
+
+	function createTable(headers) {
+		var table = document.getElementById("table");
+		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
+		createTableHeaders(headers);
+
+		ref.on("value", function(snapshot) {
+		    snapshot.forEach(function(data) {
+		    	tr_item = document.createElement('TR');
+		    	tr_item.setAttribute("class", "item");
+		    	obj_name = data.key();
+		    	obj_attr = data.val();
+		    	for (var i = 0; i < headers.length; i++) {
+		    		td = document.createElement('TD');
+		    		if (headers[i] == "Name") {
+		    			td.innerHTML = obj_name }
+		    		else {
+		    			td.innerHTML = obj_attr[headers[i]] }
+			    	tr_item.appendChild(td);
+		    	}
+		    	table.appendChild(tr_item);
+		    });
+		});
+	}
+
+	createTable(['Name', 'In Stock', 'Vendor', 'Vendor Price']);
 
 	//click handler to show/hide tabs of categories and columns
 	// Source: http://stackoverflow.com/questions/14073019/show-hide-twitter-bootstrap-tabs
