@@ -1,0 +1,284 @@
+{
+	"Name": {
+		"Bic Pencil, 26ct": {
+			"SKU":"001", 
+			"Brand":"Bic", 
+			"Vendor":"Bic", 
+			"In Stock":"142", 
+			"Unit Price":"750", 
+			"Vendor Price":"725", 
+			"Max Quantity":"150",
+			"Category": "Pencils",
+			"Image": "./pencil_pictures/bic-26ct.jpeg"
+		},
+		"Faber-Castell Pencil, 12ct": {
+			"SKU":"002", 
+			"Brand":"Faber-Castell", 
+			"Vendor":"Faber", 
+			"In Stock":"7", 
+			"Unit Price":"1400", 
+			"Vendor Price":"1250", 
+			"Max Quantity":"100",
+			"Category": "Pencils",
+			"Image": "./pencil_pictures/faber-castell-12ct.jpg"
+
+		},
+		"Papermate Pencil": {
+			"SKU":"003", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"10", 
+			"Unit Price":"100", 
+			"Vendor Price":"050", 
+			"Max Quantity":"30",
+			"Category": "Pencils",
+			"Image": "./pencil_pictures/papermate-pencil.jpeg"
+
+		},
+		"Pentel Pencil": {
+			"SKU":"004", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"14", 
+			"Unit Price":"150", 
+			"Vendor Price":"080", 
+			"Max Quantity":"50",
+			"Category": "Pencils",
+			"Image": "./pencil_pictures/pentel-pencil.jpg"
+		},
+		"Pilot Pencil": {
+			"SKU":"005", 
+			"Brand":"Pilot", 
+			"Vendor":"Pilot", 
+			"In Stock":"40", 
+			"Unit Price":"100", 
+			"Vendor Price":"050", 
+			"Max Quantity":"80",
+			"Category": "Pencils",
+			"Image": "./pencil_pictures/pilot-pencil.jpeg"
+		},
+		"Staedtler Pencil, 12ct": {
+			"SKU":"006", 
+			"Brand":"Staedtler", 
+			"Vendor":"Staedtler", 
+			"In Stock":"60", 
+			"Unit Price":"125", 
+			"Vendor Price":"067", 
+			"Max Quantity":"100",
+			"Category": "Pencils",
+			"Image": "./pencil_pictures/staedtler-12ct.jpg"
+		},
+		"Papermate Black Pearl Eraser": {
+			"SKU":"007", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"17", 
+			"Unit Price":"5.00", 
+			"Vendor Price":"2.50", 
+			"Max Quantity":"25",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/PaperMate_BlackPearl.jpeg"
+		},
+		"Papermate Pink Pearl Eraser": {
+			"SKU":"008", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"21", 
+			"Unit Price":"3.00", 
+			"Vendor Price":"1.50", 
+			"Max Quantity":"50",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/PaperMate_PinkPearl.jpeg"
+
+		},
+		"Papermate White Pearl Eraser": {
+			"SKU":"009", 
+			"Brand":"Papermate", 
+			"Vendor":"Papermate", 
+			"In Stock":"11", 
+			"Unit Price":"3.00", 
+			"Vendor Price":"2.00", 
+			"Max Quantity":"50",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/PaperMate_WhitePearl.jpeg"
+		},
+		"Pentel Hi-Polymer Eraser Colors - Assorted 4-Pack": {
+			"SKU":"010", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"17", 
+			"Unit Price":"3.56", 
+			"Vendor Price":"3.20", 
+			"Max Quantity":"20",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/Pentel_Eraser_Colors.png"
+		},
+		"Pentel Hi-Polymer Eraser": {
+			"SKU":"010", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"7", 
+			"Unit Price":"1.69", 
+			"Vendor Price":"1.25", 
+			"Max Quantity":"50",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/Pentel_Eraser.png"
+
+		},
+		"Pentel Hi-Polymer Eraser 3 Pack": {
+			"SKU":"011", 
+			"Brand":"Pentel", 
+			"Vendor":"Pentel", 
+			"In Stock":"14", 
+			"Unit Price":"5.07", 
+			"Vendor Price":"4.40", 
+			"Max Quantity":"25",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/Pentel_Eraser_3Pack.png"
+
+		},
+		"Five Star Wirebound College Rule Notebooks": {
+			"SKU":"012", 
+			"Brand":"Mead", 
+			"Vendor":"Mead", 
+			"In Stock":"70", 
+			"Unit Price":"6.99", 
+			"Vendor Price":"6.00", 
+			"Max Quantity": "125",
+			"Category": "Notebooks",
+			"Image": "./notebook_pictures/Mead_CollegeRule.jpg"
+		},
+		"Five Star Wirebound Wide Rule Notebooks": {
+			"SKU":"013", 
+			"Brand":"Mead", 
+			"Vendor":"Mead", 
+			"In Stock":"100", 
+			"Unit Price":"6.99", 
+			"Vendor Price":"6.00", 
+			"Max Quantity": "125",
+			"Category": "Notebooks",
+			"Image": "./notebook_pictures/Mead_WideRule.png"
+		},
+		"Leather-bound Legal Ruled Business Notebook": {
+			"SKU":"014", 
+			"Brand":"Mead", 
+			"Vendor":"Mead", 
+			"In Stock":"10", 
+			"Unit Price":"9.49", 
+			"Vendor Price":"8.50", 
+			"Max Quantity": "10",
+			"Category": "Notebooks",
+			"Image": "./notebook_pictures/Mead_Leather.png"			
+		},
+		"Scotch Magic Tape, Clear": {
+			"SKU":"015", 
+			"Brand":"3M", 
+			"Vendor":"3M", 
+			"In Stock":"42", 
+			"Unit Price":"2.22", 
+			"Vendor Price":"1.80", 
+			"Max Quantity": "100",
+			"Category": "Tapes",
+			"Image": "./tapes_pictures/Scotch_Magic.jpg"
+		},
+		"Scotch Giftwrap Tape, 2 Pack": {
+			"SKU":"016", 
+			"Brand":"3M", 
+			"Vendor":"3M", 
+			"In Stock":"32", 
+			"Unit Price":"4.99", 
+			"Vendor Price":"3.50", 
+			"Max Quantity": "40",
+			"Category": "Tapes",
+			"Image": "./tapes_pictures/Scotch_Giftwrap.jpg"
+		},
+		"Scotch Double-Sided Office Tape, 2 Pack": {
+			"SKU":"017", 
+			"Brand":"3M", 
+			"Vendor":"3M", 
+			"In Stock":"7", 
+			"Unit Price":"4.69", 
+			"Vendor Price":"3.25", 
+			"Max Quantity": "25",
+			"Category": "Tapes",
+			"Image": "./tapes_pictures/Scotch_Double.jpeg"
+		},
+		"Swingline Red Business Stapler": {
+			"SKU":"018", 
+			"Brand":"Mead", 
+			"Vendor":"Mead", 
+			"In Stock":"29", 
+			"Unit Price":"19.99", 
+			"Vendor Price":"17.00", 
+			"Max Quantity": "35",
+			"Category": "Office Supplies",
+			"Image": "./supplies_pictures/Stapler.jpg"
+		},
+		"Mead Tab Dividers with Pocket": {
+			"SKU":"019", 
+			"Brand":"Mead", 
+			"Vendor":"Mead", 
+			"In Stock":"20", 
+			"Unit Price":"3.99", 
+			"Vendor Price":"2.00", 
+			"Max Quantity": "40",
+			"Category": "Office Supplies",
+			"Image": "./supplies_pictures/Dividers.png"
+		},
+		"Mead Zipper Expanding File": {
+			"SKU":"020", 
+			"Brand":"Mead", 
+			"Vendor":"Mead", 
+			"In Stock":"20", 
+			"Unit Price":"13.99", 
+			"Vendor Price":"10.00", 
+			"Max Quantity": "25",
+			"Category": "Office Supplies",
+			"Image": "./supplies_pictures/Mead_ZipperFile.jpg"
+		}
+	},
+	"Brand": [
+		"Bic", 
+		"Faber-Castell", 
+		"Papermate", 
+		"Pentel", 
+		"Pilot", 
+		"Staedtler",
+		"Mead",
+		"3M"
+
+	],
+	"Category": {
+		"Office Supplies" : [
+			"Mead Brite Wallet Letter File",
+			"Mead Tab Dividers with Pocket",
+			"Swingline Red Business Stapler"
+		], 
+		"Erasers" : [
+			"Papermate Black Pearl Eraser",
+			"Papermate Pink Pearl Eraser",
+			"Papermate White Pearl Eraser",
+			"Pentel Hi-Polymer Eraser Colors - Assorted 4-Pack",
+			"Pentel Hi-Polymer Eraser",
+			"Pentel Hi-Polymer Eraser 3 Pack"
+		], 
+		"Notebooks" : [
+			"Five Star Wirebound College Rule Notebooks",
+			"Five Star Wirebound Wide Rule Notebooks",
+			"Leather-bound Legal Ruled Business Notebook"
+		],
+		"Pencils" : [
+			"Bic Pencil, 26ct",
+			"Faber-Castell Pencil, 12ct",
+			"Papermate Pencil",
+			"Pentel Pencil",
+			"Pilot Pencil",
+			"Staedtler Pencil, 12ct"
+		],
+		"Tapes" : [
+			"Scotch Double-Sided Office Tape, 2 Pack",
+			"Scotch Giftwrap Tape, 2 Pack",
+			"Scotch Magic Tape, Clear"
+		]
+	}
+}
