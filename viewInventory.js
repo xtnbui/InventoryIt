@@ -89,6 +89,15 @@ $(document).ready(function() {
 		}
 	});
 
+	// Clear select all button if one of the options is unchecked
+	$(".checkbox").click(function(e) {
+		if (!($(this).prop("checked"))) {
+			var selectAllClass = this.getAttribute("class") + " checkAll";
+			var selectAllButton = document.getElementsByClassName(selectAllClass);
+			$(selectAllButton).prop("checked", false);
+		}
+	});
+
 	function createTableHeaders(columns) {
 		var table = document.getElementById("view-table");
 		var tableHead = document.createElement('THEAD');
