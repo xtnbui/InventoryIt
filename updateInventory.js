@@ -1,5 +1,28 @@
 $(document).ready(function() {
+
+
+  $.extend({
+      getUrlVars : function() {
+          var vars = [], hash;
+          var hashes = window.location.href.slice(
+              window.location.href.indexOf('?') + 1).split('&');
+          for ( var i = 0; i < hashes.length; i++) {
+              hash = hashes[i].split('=');
+              vars.push(hash[0]);
+              vars[hash[0]] = hash[1];
+          }
+          return vars;
+      },
+      getUrlVar : function(name) {
+          return $.getUrlVars()[name];
+      }
+  });
+
+
+  var itemCount = 0;
+
   var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
+
 
   // from http://stackoverflow.com/questions/1304378/jquery-web-page-height/1304384#1304384
   // $("#items-container").css("height", 0.6*$(document).height()); //set the height of the items container to be 3/4 of the document's height
@@ -9,109 +32,132 @@ $(document).ready(function() {
   // var itemtoCurrentIndex = {};
 
   var table = document.getElementById("update_table");
-
+  selectObjects();
   //to keep track of which item number it is - for undo and save purposes
-  var itemCount = 0;
-  ref.on("value", function(snapshot) {
-    var table = document.getElementById("update_table");
-    snapshot.forEach(function(data) {
-
-      itemCount += 1;
-
-      obj_name = data.key();
-      obj_attr = data.val();
-
-      var tr = document.createElement('TR');
-      var td = document.createElement('TD');
-        td.width='10%';
-        img = document.createElement('IMG');
-        img.setAttribute("class", "thumbnail-image img-responsive");
-        img.setAttribute("src", obj_attr["Image"]);
-        td.appendChild(img);
-      tr.appendChild(td);
-
-      var td_2 = document.createElement('TD');
-        td_2.width='60%';
-        var p = document.createElement("p");
-        p.setAttribute("class", "pencil-name top no-padding");
-        p.setAttribute("data-item-number", itemCount);
-        p.appendChild(document.createTextNode(obj_name));
-        td_2.appendChild(p);
-
-          var bar_div = document.createElement('DIV');
-          bar_div.setAttribute("class", "progress bottom progress-size");
-            var bar_div2 = document.createElement('DIV');
-            bar_div2.setAttribute("id", "progress-bar"+itemCount);
-            bar_div2.setAttribute("class", "progress-bar progress-color");
-            bar_div2.setAttribute("role", "progressbar");
-            var percentage = Math.floor(obj_attr["In Stock"]/obj_attr["Max Quantity"]*100);
-            bar_div2.setAttribute("style", "width:" + percentage + "%");
-            bar_div2.setAttribute("aria-valuenow", obj_attr["In Stock"]);
-            bar_div2.setAttribute("aria-valuemax", obj_attr["Max Quantity"]);
-            bar_div2.setAttribute("aria-valuemin", "0");
-              // span = document.createElement('SPAN');
-              // span.setAttribute("class", "sr-only");
-              // span.innerHTML = amt + "% Complete";
-              // bar_div2.appendChild(span);
-            bar_div.appendChild(bar_div2);
-          td_2.appendChild(bar_div);
-      tr.appendChild(td_2)
-
-      var td_3 = document.createElement('TD');
-        td_3.width='10%';
-        td_3.setAttribute("align", "right");
-        textarea = document.createElement('TEXTAREA');
-        textarea.appendChild(document.createTextNode(obj_attr["In Stock"]));
-        textarea.setAttribute("wrap", "off");
-        textarea.setAttribute("class", "form-control inputted_quantity");
-        textarea.setAttribute("id", "inputted_quantity-"+itemCount);
-        textarea.setAttribute("data-item-number", itemCount);
-        td_3.appendChild(textarea);
-      tr.appendChild(td_3);
-
-      var td_4 = document.createElement('TD');
-        td_4.width='10%'
-        maxQtyDiv = document.createElement('DIV');
-        maxQtyDiv.setAttribute("style", "margin-top:7px");
-          maxQty = document.createTextNode("/" + obj_attr["Max Quantity"]);
-          maxQtyDiv.appendChild(maxQty);
-        td_4.appendChild(maxQtyDiv);
-      tr.appendChild(td_4);
-
-      var td_5 = document.createElement('TD');
-        td_5.width='10%';
-          button = document.createElement('BUTTON');
-          button.innerHTML = 'Save';
-          button.setAttribute("id", "save-btn"+itemCount);
-          button.setAttribute("type", "button");
-          button.setAttribute("class", "btn btn-primary btn-sm btn-text center-block save-btn");
-          button.setAttribute("data-item-number", itemCount);
-        td_5.appendChild(button);
-      tr.appendChild(td_5);
-
-      var td_6 = document.createElement('TD');
-        td_6.width='10%';
-          button2 = document.createElement('BUTTON');
-          button2.innerHTML = 'Reset to Previous';
-          button2.setAttribute("id", "undo-btn"+itemCount);
-          button2.setAttribute("type", "button");
-          button2.setAttribute("class", "btn btn-primary btn-sm btn-text center-block undo-btn");
-          button2.setAttribute("data-item-number", itemCount);
-        td_6.appendChild(button2);
-      tr.appendChild(td_6);
-
-
-
-      table.appendChild(tr);
-
-      //disable the "Reset to Previous" buttons
-      $("#undo-btn"+itemCount).attr("disabled", "");
-      $("#save-btn"+itemCount).attr("disabled", "");
-
-      itemtoLastQuantity[itemCount] = [obj_attr["In Stock"]];
-
+  
+  function selectObjects() {
+    brand = $.getUrlVar('brand');
+    category = $.getUrlVar('category');
+    var itemRef = undefined;
+    if (typeof category != 'undefined') {
+      // console.log("Doing a category " + category);
+      itemRef = new Firebase('https://blinding-inferno-865.firebaseio.com/Category/' + category);
+    } else {
+      // console.log("Doing a Brand " + brand);
+      itemRef = new Firebase('https://blinding-inferno-865.firebaseio.com/Brand/' + brand);
+    }
+    var items = [];
+    itemRef.on("value", function(snapshot) {
+      snapshot.forEach(function(data) {
+        items.push(data.val());
+      });
+      BuildTable(new Set (items));
     });
-  });
+
+  }
+
+  function BuildTable (items) {
+    ref.on("value", function(snapshot) {
+      var table = document.getElementById("update_table");
+      snapshot.forEach(function(data) {
+        obj_name = data.key();
+        if (items.has(obj_name)) {
+          itemCount += 1;
+          obj_attr = data.val();
+
+          var tr = document.createElement('TR');
+          var td = document.createElement('TD');
+            td.width='10%';
+            img = document.createElement('IMG');
+            img.setAttribute("class", "thumbnail-image img-responsive");
+            img.setAttribute("src", obj_attr["Image"]);
+            td.appendChild(img);
+          tr.appendChild(td);
+
+          var td_2 = document.createElement('TD');
+            td_2.width='60%';
+            var p = document.createElement("p");
+            p.setAttribute("class", "pencil-name top no-padding");
+            p.setAttribute("data-item-number", itemCount);
+            p.appendChild(document.createTextNode(obj_name));
+            td_2.appendChild(p);
+
+              var bar_div = document.createElement('DIV');
+              bar_div.setAttribute("class", "progress bottom progress-size");
+                var bar_div2 = document.createElement('DIV');
+                bar_div2.setAttribute("id", "progress-bar"+itemCount);
+                bar_div2.setAttribute("class", "progress-bar progress-color");
+                bar_div2.setAttribute("role", "progressbar");
+                var percentage = Math.floor(obj_attr["In Stock"]/obj_attr["Max Quantity"]*100);
+                bar_div2.setAttribute("style", "width:" + percentage + "%");
+                bar_div2.setAttribute("aria-valuenow", obj_attr["In Stock"]);
+                bar_div2.setAttribute("aria-valuemax", obj_attr["Max Quantity"]);
+                bar_div2.setAttribute("aria-valuemin", "0");
+                  // span = document.createElement('SPAN');
+                  // span.setAttribute("class", "sr-only");
+                  // span.innerHTML = amt + "% Complete";
+                  // bar_div2.appendChild(span);
+                bar_div.appendChild(bar_div2);
+              td_2.appendChild(bar_div);
+          tr.appendChild(td_2)
+
+          var td_3 = document.createElement('TD');
+            td_3.width='10%';
+            td_3.setAttribute("align", "right");
+            textarea = document.createElement('TEXTAREA');
+            textarea.appendChild(document.createTextNode(obj_attr["In Stock"]));
+            textarea.setAttribute("wrap", "off");
+            textarea.setAttribute("class", "form-control inputted_quantity");
+            textarea.setAttribute("id", "inputted_quantity-"+itemCount);
+            textarea.setAttribute("data-item-number", itemCount);
+            td_3.appendChild(textarea);
+          tr.appendChild(td_3);
+
+          var td_4 = document.createElement('TD');
+            td_4.width='10%'
+            maxQtyDiv = document.createElement('DIV');
+            maxQtyDiv.setAttribute("style", "margin-top:7px");
+              maxQty = document.createTextNode("/" + obj_attr["Max Quantity"]);
+              maxQtyDiv.appendChild(maxQty);
+            td_4.appendChild(maxQtyDiv);
+          tr.appendChild(td_4);
+
+          var td_5 = document.createElement('TD');
+            td_5.width='10%';
+              button = document.createElement('BUTTON');
+              button.innerHTML = 'Save';
+              button.setAttribute("id", "save-btn"+itemCount);
+              button.setAttribute("type", "button");
+              button.setAttribute("class", "btn btn-primary btn-sm btn-text center-block save-btn");
+              button.setAttribute("data-item-number", itemCount);
+            td_5.appendChild(button);
+          tr.appendChild(td_5);
+
+          var td_6 = document.createElement('TD');
+            td_6.width='10%';
+              button2 = document.createElement('BUTTON');
+              button2.innerHTML = 'Reset to Previous';
+              button2.setAttribute("id", "undo-btn"+itemCount);
+              button2.setAttribute("type", "button");
+              button2.setAttribute("class", "btn btn-primary btn-sm btn-text center-block undo-btn");
+              button2.setAttribute("data-item-number", itemCount);
+            td_6.appendChild(button2);
+          tr.appendChild(td_6);
+
+
+          table.appendChild(tr);
+          //disable the "Reset to Previous" buttons
+          $("#undo-btn"+itemCount).attr("disabled", "");
+          $("#save-btn"+itemCount).attr("disabled", "");
+
+          itemtoLastQuantity[itemCount] = [obj_attr["In Stock"]];
+      }
+      });
+    });
+  }
+
+
+
 
   //initialize all the currentIndices
   var numItems = 6;
