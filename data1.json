@@ -204,23 +204,44 @@
 			"Image": "./tapes_pictures/Scotch_Double.jpeg"
 		}
 	},
-	"Brand": [
-		"Bic", 
-		"Faber-Castell", 
-		"Papermate", 
-		"Pentel", 
-		"Pilot", 
-		"Staedtler",
-		"Mead",
-		"3M"
+	"Brand": {
+		"Bic" : [
+			"Bic Pencil, 26ct"
+		],
+		"Faber-Castell" : [
+			"Faber-Castell Pencil, 12ct"
+		],
+		"Papermate" : [
+			"Papermate Pencil",
+			"Papermate Black Pearl Eraser",
+			"Papermate Pink Pearl Eraser",
+			"Papermate White Pearl Eraser"
+		],
+		"Pentel" : [
+			"Pentel Pencil",
+			"Pentel Hi-Polymer Eraser Colors - Assorted 4-Pack",
+			"Pentel Hi-Polymer Eraser",
+			"Pentel Hi-Polymer Eraser 3 Pack"
+		],
+		"Pilot" : [
+			"Pilot Pencil"
+		],
+		"Staedtler" : [
+			"Staedtler Pencil, 12ct"
+		],
+		"Mead" : [
+			"Five Star Wirebound College Rule Notebooks",
+			"Five Star Wirebound Wide Rule Notebooks",
+			"Leather-bound Legal Ruled Business Notebook"
+		],
+		"3M" : [
+			"Scotch Magic Tape, Clear",
+			"Scotch Giftwrap Tape, 2 Pack",
+			"Scotch Double-Sided Office Tape, 2 Pack"
+		]
 
-	],
+	},
 	"Category": {
-		"Office Supplies" : [
-			"Mead Brite Wallet Letter File",
-			"Mead Tab Dividers with Pocket",
-			"Swingline Red Business Stapler"
-		], 
 		"Erasers" : [
 			"Papermate Black Pearl Eraser",
 			"Papermate Pink Pearl Eraser",
@@ -243,9 +264,9 @@
 			"Staedtler Pencil, 12ct"
 		],
 		"Tapes" : [
-			"Scotch Double-Sided Office Tape, 2 Pack",
+			"Scotch Magic Tape, Clear",
 			"Scotch Giftwrap Tape, 2 Pack",
-			"Scotch Magic Tape, Clear"
+			"Scotch Double-Sided Office Tape, 2 Pack"
 		]
 	}
 }
