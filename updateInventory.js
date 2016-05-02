@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   //to keep track of which item number it is - for undo and save purposes
   var itemCount = 0;
-  ref.on("value", function(snapshot) {
+  ref.once("value", function(snapshot) {
     var table = document.getElementById("update_table");
     snapshot.forEach(function(data) {
 
