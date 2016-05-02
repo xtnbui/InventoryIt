@@ -114,7 +114,7 @@
 			"Image": "./eraser_pictures/Pentel_Eraser_Colors.png"
 		},
 		"Pentel Hi-Polymer Eraser": {
-			"SKU":"010", 
+			"SKU":"011", 
 			"Brand":"Pentel", 
 			"Vendor":"Pentel", 
 			"In Stock":"7", 
@@ -126,7 +126,7 @@
 
 		},
 		"Pentel Hi-Polymer Eraser 3 Pack": {
-			"SKU":"011", 
+			"SKU":"012", 
 			"Brand":"Pentel", 
 			"Vendor":"Pentel", 
 			"In Stock":"14", 
@@ -138,7 +138,7 @@
 
 		},
 		"Five Star Wirebound College Rule Notebooks": {
-			"SKU":"012", 
+			"SKU":"013", 
 			"Brand":"Mead", 
 			"Vendor":"Mead", 
 			"In Stock":"70", 
@@ -149,7 +149,7 @@
 			"Image": "./notebook_pictures/Mead_CollegeRule.jpg"
 		},
 		"Five Star Wirebound Wide Rule Notebooks": {
-			"SKU":"013", 
+			"SKU":"014", 
 			"Brand":"Mead", 
 			"Vendor":"Mead", 
 			"In Stock":"100", 
@@ -160,7 +160,7 @@
 			"Image": "./notebook_pictures/Mead_WideRule.png"
 		},
 		"Leather-bound Legal Ruled Business Notebook": {
-			"SKU":"014", 
+			"SKU":"015", 
 			"Brand":"Mead", 
 			"Vendor":"Mead", 
 			"In Stock":"10", 
@@ -171,7 +171,7 @@
 			"Image": "./notebook_pictures/Mead_Leather.png"			
 		},
 		"Scotch Magic Tape, Clear": {
-			"SKU":"015", 
+			"SKU":"016", 
 			"Brand":"3M", 
 			"Vendor":"3M", 
 			"In Stock":"42", 
@@ -182,7 +182,7 @@
 			"Image": "./tapes_pictures/Scotch_Magic.jpg"
 		},
 		"Scotch Giftwrap Tape, 2 Pack": {
-			"SKU":"016", 
+			"SKU":"017", 
 			"Brand":"3M", 
 			"Vendor":"3M", 
 			"In Stock":"32", 
@@ -193,7 +193,7 @@
 			"Image": "./tapes_pictures/Scotch_Giftwrap.jpg"
 		},
 		"Scotch Double-Sided Office Tape, 2 Pack": {
-			"SKU":"017", 
+			"SKU":"018", 
 			"Brand":"3M", 
 			"Vendor":"3M", 
 			"In Stock":"7", 
