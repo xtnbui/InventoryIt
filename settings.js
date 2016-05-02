@@ -60,7 +60,7 @@ $(document).ready(function() {
       var td_3 = document.createElement('TD');
         td_3.width='10%'
         qtyDiv = document.createElement('DIV');
-        qtyDiv.setAttribute("style", "margin-top:7px");
+        qtyDiv.setAttribute("style", "margin-top:7px; text-align:right");
           qty = document.createTextNode(obj_attr["In Stock"] + "/");
           qtyDiv.appendChild(qty);
         td_3.appendChild(qtyDiv);
@@ -68,7 +68,7 @@ $(document).ready(function() {
 
       var td_4 = document.createElement('TD');
         td_4.width='10%';
-        td_4.setAttribute("align", "right");
+        td_4.setAttribute("align", "left");
         textarea = document.createElement('TEXTAREA');
         textarea.appendChild(document.createTextNode(obj_attr["Max Quantity"]));
         textarea.setAttribute("wrap", "off");
@@ -238,10 +238,10 @@ $(document).ready(function() {
 
 
   //HELPER FUNCTIONS
-  var updateBackendAndGiveVisualCues = function(itemTitle, itemNumber, quantity) {
+  var updateBackendAndGiveVisualCues = function(itemTitle, itemNumber, maxQuantity) {
     //save the changed quantities and give user visual cues
     ref.child(itemTitle).update({
-      "In Stock": quantity
+      "Max Quantity": maxQuantity
       }, function(error) { //when save is complete, show user feedback
             if (error != null) {
               //TODO: change to feedback to user
@@ -256,7 +256,7 @@ $(document).ready(function() {
 
               $("#save-btn" + itemNumber).attr("disabled", ""); //disable the save button
               ref.child(itemTitle).on("value", function(snapshot) {
-                var maxQuantity = snapshot.val()["Max Quantity"];
+                var quantity = snapshot.val()["In Stock"];
                 var percentage = Math.floor(quantity/maxQuantity*100);
                 $("#progress-bar" + itemNumber).css("width", percentage + "%");
                 $("#progress-bar" + itemNumber).attr("aria-valuenow", quantity);
