@@ -29,7 +29,10 @@ $(document).ready(function() {
 	raw_col = $.getUrlVar('columns');
 	raw_category = $.getUrlVar('category');
 	columns = cleanParameters(raw_col);
-	categories = cleanParameters(raw_category);
+	categories = new Set(cleanParameters(raw_category));
+	console.log(categories);
+	console.log(columns);
+
 
 
 	// Generate label text for checkboxes
@@ -76,8 +79,6 @@ $(document).ready(function() {
 
 	makeCategorySelectionCheckboxes("categories");
 	makeCategorySelectionCheckboxes("columns");
-	createTable(columns, categories);
-
 
 	// Select all button functionality
 	$(".checkAll").click(function(e) {
@@ -87,6 +88,28 @@ $(document).ready(function() {
 			$($(elts[i])).prop("checked", $(this).prop("checked"));
 		}
 	});
+
+	function itemsFromCategories(columns, categories) {
+		var rootRef = new Firebase('https://blinding-inferno-865.firebaseio.com/Category');
+		var result = [];
+		rootRef.on("value", function(snapshot) {
+			snapshot.forEach(function(data) {
+				name = data.key();
+				if (categories.has(name)) {
+					things = data.val();
+					for (var i = 0; i < things.length; i++) {
+						result.push(things[i]);
+					}
+				}
+			});
+			console.log( (new Date()).getTime());
+			console.log("Final result: " + result);
+			result = new Set(result);
+			createTable(columns, result);
+		});
+
+	}
+
 
 	function createTableHeaders(columns) {
 		var table = document.getElementById("view-table");
@@ -101,30 +124,38 @@ $(document).ready(function() {
 		}
 	}
 
-	function createTable(headers, categories) {
+	function createTable(headers, itemsInCategories) {
 		var table = document.getElementById("view-table");
 		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
 		createTableHeaders(headers);
+		console.log(itemsInCategories);
+
 		table_body = document.createElement('TBODY');
 		ref.on("value", function(snapshot) {
+
 		    snapshot.forEach(function(data) {
-		    	tr_item = document.createElement('TR');
-		    	tr_item.setAttribute("class", "item");
-		    	table_body.appendChild(tr_item);
 		    	obj_name = data.key();
-		    	obj_attr = data.val();
-		    	for (var i = 0; i < headers.length; i++) {
-		    		td = document.createElement('TD');
-		    		if (headers[i] == "Name") {
-		    			td.innerHTML = obj_name }
-		    		else {
-		    			td.innerHTML = obj_attr[headers[i]] }
-			    	tr_item.appendChild(td);
-		    	}
-		    	table.appendChild(table_body);
+		    	console.log(obj_name);
+		    	if (itemsInCategories.has(obj_name)) {
+			    	tr_item = document.createElement('TR');
+			    	tr_item.setAttribute("class", "item");
+			    	table_body.appendChild(tr_item);
+			    	obj_attr = data.val();
+			    	for (var i = 0; i < headers.length; i++) {
+			    		td = document.createElement('TD');
+			    		if (headers[i] == "Name") {
+			    			td.innerHTML = obj_name }
+			    		else {
+			    			td.innerHTML = obj_attr[headers[i]] }
+				    	tr_item.appendChild(td);
+			    	}
+			    	table.appendChild(table_body);
+			    }
 		    });
 		});
 	}
+
+	itemsFromCategories(columns, categories);
 
 
 	// click handler to show/hide tabs of categories and columns
@@ -142,20 +173,20 @@ $(document).ready(function() {
 
 	// click handler for submit button
 	$("#submit-button").click(function(e) {
-		var columns = [];
-		var categories = [];
+		var cols = [];
+		var cats = [];
 
 		var column_values = document.getElementsByClassName("columns");
 		var category_values = document.getElementsByClassName("categories");
 		
 		for (var i=0; i<column_values.length; i++) {
 			if (column_values[i].checked && column_values[i].name != "Select All")
-				columns.push(column_values[i].name);
+				cols.push(column_values[i].name);
 		}
 
 		for (var i=0; i<category_values.length; i++) {
 			if (category_values[i].checked && category_values[i].name != "Select All")
-				categories.push(category_values[i].name);
+				cats.push(category_values[i].name);
 		}
 
 		// clear table
@@ -163,7 +194,6 @@ $(document).ready(function() {
 		var table = document.getElementById("view-table");
 		while (table.firstChild)
 			table.removeChild(table.firstChild);
-		
-		createTable(columns, categories);
+		itemsFromCategories(cols, cats);
 	});
 });
