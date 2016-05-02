@@ -41,9 +41,10 @@
   </nav>
 
   <div class="col-md-10 col-md-offset-1" id="white-background-div"></div>
+  <div class="spacer"></div>
 
   <div class="tabs-container">
-    <ul class="nav nav-tabs col-md-8 col-md-offset-2" id="alltabs">
+    <ul class="nav nav-tabs col-md-10 col-md-offset-1" id="alltabs">
       <li role="presentation"><a href="#categories_panel" aria-controls="categories_panel" role="tab" data-toggle="tab">Categories</a>
       <li role="presentation"><a href="#columns_panel" aria-controls="columns_panel" role="tab" data-toggle="tab">Columns</a>
       </li>
@@ -53,7 +54,7 @@
 
       <!-- Categories choices  -->
       <div role="tabpanel" class="tab-pane col-md-12" id="categories_panel">
-        <form onSubmit="return submitForm()">
+        <form>
           <fieldset>
 
             <div class="form-group col-md-8 col-md-offset-2 no-padding" id="categories-div">
@@ -65,7 +66,7 @@
             </div>
 
             <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
-              <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
+              <div class="col-md-1 col-md-offset-10"><input type="button" class="btn .btn-default submit btn-text" value="Submit" id="submit-button"></div>
             </div>
           </fieldset>
         </form>
@@ -73,7 +74,7 @@
 
       <!-- Columns choices  -->
       <div role="tabpanel" class="tab-pane col-md-12" id="columns_panel">
-        <form onSubmit="return submitForm()">
+        <form>
           <fieldset>
 
             <div class="form-group col-md-8 col-md-offset-2 no-padding" id="columns-div">
@@ -85,7 +86,7 @@
             </div>
 
             <div class="form-group col-md-8 col-md-offset-2" id="btn-submit">
-              <div class="col-md-1 col-md-offset-10"><input type="submit" class="btn .btn-default submit btn-text" value="Submit"></div>
+              <div class="col-md-1 col-md-offset-10"><input type="button" class="btn .btn-default btn-text" value="Submit"></div>
             </div>
           </fieldset>
         </form>
