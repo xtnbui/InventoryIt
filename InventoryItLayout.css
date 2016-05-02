@@ -27,9 +27,6 @@ h1 {
 .navbar-inverse .navbar-nav>li>a {
   color: #A1ADB8;
 }
-.nav-tabs {
-  padding-left: 15px;
-}
 
 .navbar-default {
   background-color: #000000;
@@ -221,7 +218,13 @@ th {
 }
 
 .nav-tabs {
-  padding-left: 15px;
+  padding-left: 0px;
+}
+
+.spacer {
+  display: block;
+  width: 100%;
+  height: 100px;
 }
 
 /*.alert {
