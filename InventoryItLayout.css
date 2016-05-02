@@ -186,6 +186,10 @@ label.checkbox-inline {
   height: 20%;
 }
 
+.progress {
+  background-color: #D7DBDF;
+}
+
 .progress-color {
   background-color: #1A5B92;
 }
