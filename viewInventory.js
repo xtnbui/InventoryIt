@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-	
 	$.extend({
 	    getUrlVars : function() {
 	        var vars = [], hash;
@@ -30,10 +29,6 @@ $(document).ready(function() {
 	raw_category = $.getUrlVar('category');
 	columns = cleanParameters(raw_col);
 	categories = new Set(cleanParameters(raw_category));
-	console.log(categories);
-	console.log(columns);
-
-
 
 	// Generate label text for checkboxes
 	function generateCheckboxLabelText(type) {
@@ -89,28 +84,6 @@ $(document).ready(function() {
 		}
 	});
 
-	function itemsFromCategories(columns, categories) {
-		var rootRef = new Firebase('https://blinding-inferno-865.firebaseio.com/Category');
-		var result = [];
-		rootRef.on("value", function(snapshot) {
-			snapshot.forEach(function(data) {
-				name = data.key();
-				if (categories.has(name)) {
-					things = data.val();
-					for (var i = 0; i < things.length; i++) {
-						result.push(things[i]);
-					}
-				}
-			});
-			console.log( (new Date()).getTime());
-			console.log("Final result: " + result);
-			result = new Set(result);
-			createTable(columns, result);
-		});
-
-	}
-
-
 	function createTableHeaders(columns) {
 		var table = document.getElementById("view-table");
 		var tableHead = document.createElement('THEAD');
@@ -128,14 +101,13 @@ $(document).ready(function() {
 		var table = document.getElementById("view-table");
 		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
 		createTableHeaders(headers);
-		console.log(itemsInCategories);
 
 		table_body = document.createElement('TBODY');
 		ref.on("value", function(snapshot) {
 
 		    snapshot.forEach(function(data) {
 		    	obj_name = data.key();
-		    	console.log(obj_name);
+		    	
 		    	if (itemsInCategories.has(obj_name)) {
 			    	tr_item = document.createElement('TR');
 			    	tr_item.setAttribute("class", "item");
@@ -155,8 +127,28 @@ $(document).ready(function() {
 		});
 	}
 
-	itemsFromCategories(columns, categories);
+	function itemsFromCategories(columns, categories) {
+		var rootRef = new Firebase('https://blinding-inferno-865.firebaseio.com/Category');
+		var result = [];
+		rootRef.on("value", function(snapshot) {
+			snapshot.forEach(function(data) {
+				name = data.key();
+				if (categories.has(name)) {
+					things = data.val();
+					for (var i = 0; i<things.length; i++) {
+						result.push(things[i]);
+					}
+				}
+			});
 
+			result = new Set(result);
+			createTable(columns, result);
+		});
+	}
+
+	
+
+	itemsFromCategories(columns, categories);
 
 	// click handler to show/hide tabs of categories and columns
 	// Source: http://stackoverflow.com/questions/14073019/show-hide-twitter-bootstrap-tabs
@@ -172,13 +164,13 @@ $(document).ready(function() {
 	});
 
 	// click handler for submit button
-	$("#submit-button").click(function(e) {
+	$(".submit").click(function(e) {
 		var cols = [];
 		var cats = [];
 
 		var column_values = document.getElementsByClassName("columns");
 		var category_values = document.getElementsByClassName("categories");
-		
+
 		for (var i=0; i<column_values.length; i++) {
 			if (column_values[i].checked && column_values[i].name != "Select All")
 				cols.push(column_values[i].name);
@@ -194,6 +186,8 @@ $(document).ready(function() {
 		var table = document.getElementById("view-table");
 		while (table.firstChild)
 			table.removeChild(table.firstChild);
-		itemsFromCategories(cols, cats);
+		
+		var setOfCats = new Set(cats);
+		itemsFromCategories(cols, setOfCats);
 	});
 });
