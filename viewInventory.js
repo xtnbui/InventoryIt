@@ -58,7 +58,7 @@ $(document).ready(function() {
 	});
 
 	function createTableHeaders(columns) {
-		var table = document.getElementById("table");
+		var table = document.getElementById("view-table");
 		var tableHead = document.createElement('THEAD');
 		table.appendChild(tableHead);
 		var head_tr = document.createElement('TR');
@@ -71,7 +71,7 @@ $(document).ready(function() {
 	}
 
 	function createTable(headers) {
-		var table = document.getElementById("table");
+		var table = document.getElementById("view-table");
 		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
 		createTableHeaders(headers);
 		table_body = document.createElement('TBODY');
