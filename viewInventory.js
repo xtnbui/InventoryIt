@@ -213,5 +213,6 @@ $(document).ready(function() {
 		
 		var setOfCats = new Set(cats);
 		itemsFromCategories(cols, setOfCats);
+		$(this).blur();
 	});
 });

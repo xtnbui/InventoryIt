@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   //to keep track of which item number it is - for undo and save purposes
   var itemCount = 0;
-  ref.on("value", function(snapshot) {
+  ref.once("value", function(snapshot) {
     var table = document.getElementById("update_table");
     snapshot.forEach(function(data) {
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
       var tr = document.createElement('TR');
       var td = document.createElement('TD');
-        td.width='10%';
+        td.width='20%';
         img = document.createElement('IMG');
         img.setAttribute("class", "thumbnail-image img-responsive");
         img.setAttribute("src", obj_attr["Image"]);

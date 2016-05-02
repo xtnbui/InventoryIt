@@ -72,7 +72,7 @@ h1 {
   /*from https://www.w3.org/Style/Examples/007/center.en.html**/
   display: block;
   margin-left: auto;
-  /*margin-right: auto;*/
+  margin-right: auto;
 }
 
 .inputted_quantity {
@@ -81,6 +81,7 @@ h1 {
   text-align: center;
   overflow: auto;
   resize: none;
+  font-size: 16px;
 }
 
 .align-horizontally{
@@ -121,11 +122,12 @@ h1 {
 .progress {
   width: 90%;
   margin-bottom: 10px !important;
-  background-color: #D7DBDF;
+  background-color: #C1CAD4;
 }
 
 .no-padding {
   padding: 0 !important;
+  margin-bottom: 30px;
 }
 
 .bordered {
@@ -181,10 +183,12 @@ h1 {
 
 label.checkbox-inline {
   margin-top: 10px;
+  font-size: 16px
 }
 
 .control-label {
-  margin-top: 10px;
+  margin-top: 5px;
+  font-size: 20px
 }
 
 .table {
