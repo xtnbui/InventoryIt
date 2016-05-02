@@ -108,7 +108,7 @@ $(document).ready(function() {
       $("#undo-btn"+itemCount).attr("disabled", "");
       $("#save-btn"+itemCount).attr("disabled", "");
 
-      itemtoLastQuantity[itemCount] = [obj_attr["In Stock"]];
+      itemtoLastQuantity[itemCount] = [obj_attr["Max Quantity"]];
 
     });
   });
@@ -143,23 +143,8 @@ $(document).ready(function() {
       checkNegativeAndUpdateBackend(quantity, itemNumber, itemtoLastQuantity);
     }
 
-});
-
-  $(document).on("click", ".undo-btn", function(event) {
-    var itemNumber = $(this).attr("data-item-number");
-    //get the least recent quantity, which is one quantity back (the quantity before the one that was last saved)
-    var quantity = itemtoLastQuantity[itemNumber][0];
-
-    $("#inputted_quantity-"+itemNumber).val(quantity);
-    var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
-    updateBackendAndGiveVisualCues(itemTitle, itemNumber, quantity);
-
-    //remove the most recent saved quantity (so if you go from 124 to 32, remove 124 from saved quantities)
-    itemtoLastQuantity[itemNumber].splice(1, 1);
-    //disabled doesn't need "" but added there so that attr function knows to add that attribute, not get its value
-    $("#undo-btn" + itemNumber).attr("disabled", "");
-
   });
+
 
   $(document).on("click", "#save-all", function(event) {
     var listOfInputQuantityDIVs = $(".inputted_quantity");
@@ -176,7 +161,7 @@ $(document).ready(function() {
       //check if different than saved quantity and if so, save it to backend
       ref.child(itemTitle).on("value", function(snapshot) {
         var itemProperties = snapshot.val();
-        var savedQuantity = itemProperties["In Stock"];
+        var savedQuantity = itemProperties["Max Quantity"];
         if (inputtedQuantity != savedQuantity) {
           var result = lookForInvalidCharacters(inputtedQuantity);
           var allDigits = !result["letter"] && !result["special-character"];
@@ -196,6 +181,7 @@ $(document).ready(function() {
             $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
           }
           else {
+            $("#save-all").attr("disabled", "");
             checkNegativeAndUpdateBackend(inputtedQuantity, itemNumber, itemtoLastQuantity);
            }
 
@@ -216,6 +202,22 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on("click", ".undo-btn", function(event) {
+    var itemNumber = $(this).attr("data-item-number");
+    //get the least recent quantity, which is one quantity back (the quantity before the one that was last saved)
+    var quantity = itemtoLastQuantity[itemNumber][0];
+
+    $("#inputted_quantity-"+itemNumber).val(quantity);
+    var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
+    updateBackendAndGiveVisualCues(itemTitle, itemNumber, quantity);
+
+    //remove the most recent saved quantity (so if you go from 124 to 32, remove 124 from saved quantities)
+    itemtoLastQuantity[itemNumber].splice(1, 1);
+    //disabled doesn't need "" but added there so that attr function knows to add that attribute, not get its value
+    $("#undo-btn" + itemNumber).attr("disabled", "");
+
+  });
+
   //listen to the user typing in the quantity textbox
   $(document).on("keyup", ".inputted_quantity", function(event) {
     var itemNumber = $(this).attr("data-item-number");
@@ -225,6 +227,7 @@ $(document).ready(function() {
       var savedQuantity = itemProperties["In Stock"];
       //from https://css-tricks.com/snippets/javascript/javascript-keycodes/
       var inputtedQuantity = $("#inputted_quantity-" + itemNumber).val();
+      $("#save-all").removeAttr("disabled");
       if (inputtedQuantity != savedQuantity.toString()) {
         $("#inputted_quantity-" + itemNumber).css("background-color", "rgba(241, 4, 35, 0.13)");
         $("#save-btn" + itemNumber).removeAttr("disabled");
@@ -299,7 +302,7 @@ $(document).ready(function() {
         itemtoLastQuantity[itemNumber].push(quantity);
       } else if (itemtoLastQuantity[itemNumber].length == 2) {
         //remove the least recent quantity
-        itemtoLastQuantity[itemNumber].splice(0, 1);
+        itemtoLastQuantity[itemNumber] = [itemtoLastQuantity[itemNumber][1]];
         itemtoLastQuantity[itemNumber].push(quantity);
       }
 
