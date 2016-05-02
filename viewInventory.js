@@ -65,6 +65,11 @@ $(document).ready(function() {
 				"name": labelText[i],
 			});
 
+			var colSet = new Set(columns);
+
+			if (categories.has(labelText[i]) || colSet.has(labelText[i]))
+				$(newCheckbox).prop("checked", true);
+
 			newElt.prepend(newCheckbox);
 			selectionDiv.append(newElt);
 		}
