@@ -57,7 +57,7 @@ $(document).ready(function() {
   }
 
   function BuildTable (items) {
-    ref.on("value", function(snapshot) {
+    ref.once("value", function(snapshot) {
       var table = document.getElementById("update_table");
       snapshot.forEach(function(data) {
         obj_name = data.key();
