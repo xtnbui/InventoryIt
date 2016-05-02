@@ -5,7 +5,7 @@ html {
 
 body {
   font-family: 'Orienta', sans-serif;
-  background-color: #000010;
+  background-color: #0C1926;
 }
 
 h1 {
@@ -16,23 +16,30 @@ h1 {
 }
 
 .navbar-header {
-font-family: 'Sirin Stencil', cursive;
+  font-family: 'Sirin Stencil', cursive;
 }
 
+.navbar-inverse .navbar-nav li a {
+  color: white;
+}
 .nav-tabs {
   padding-left: 15px;
+}
+
+/* navbar */
+.navbar-default {
+  background-color: #000000;
 }
 
 /* Source: box shadow http://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
 #white-background-div {
   bottom: 0;
   top: 0;
-  position: absolute;
+  position: fixed;
   background-color: white;
   z-index: -1;
   /* box-shadow: 12px 0 5px -8px #999999, -12px 0 5px -8px #999999; */
 }
-
 
 .card {
   margin-top: 30px;
