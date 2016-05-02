@@ -66,16 +66,14 @@ function submitForm() {
 	var category_values = document.getElementsByClassName("categories");
 	
 	for (var i=0; i<column_values.length; i++) {
-		if (column_values[i].checked)
+		if (column_values[i].checked && column_values[i].name != "Select All")
 			columns.push(column_values[i].name);
 	}
 
 	for (var i=0; i<category_values.length; i++) {
-		if (category_values[i].checked)
+		if (category_values[i].checked && category_values[i].name != "Select All")
 			categories.push(category_values[i].name);
 	}
-	console.log(columns);
-	console.log(categories);
 
 	var parameters = "columns=" + columns + "&" + "category=" + categories;
 	window.location.href = "viewInventory.html?" + parameters;

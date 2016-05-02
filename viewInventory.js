@@ -1,7 +1,36 @@
 $(document).ready(function() {
-	var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
 
-	var myDataRef = new Firebase('https://blinding-inferno-865.firebaseio.com/');
+	
+	$.extend({
+	    getUrlVars : function() {
+	        var vars = [], hash;
+	        var hashes = window.location.href.slice(
+	            window.location.href.indexOf('?') + 1).split('&');
+	        for ( var i = 0; i < hashes.length; i++) {
+	            hash = hashes[i].split('=');
+	            vars.push(hash[0]);
+	            vars[hash[0]] = hash[1];
+	        }
+	        return vars;
+	    },
+	    getUrlVar : function(name) {
+	        return $.getUrlVars()[name];
+	    }
+	});
+
+	function cleanParameters(param) {
+		var objects = param.split(',');
+		for (var i = 0; i < objects.length; i++) {
+			objects[i] = objects[i].replace("%20", " "); }
+		return objects;
+	}
+
+	var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
+	raw_col = $.getUrlVar('columns');
+	raw_category = $.getUrlVar('category');
+	columns = cleanParameters(raw_col);
+	categories = cleanParameters(raw_category);
+
 
 	// Generate label text for checkboxes
 	function generateCheckboxLabelText(type) {
@@ -47,6 +76,8 @@ $(document).ready(function() {
 
 	makeCategorySelectionCheckboxes("categories");
 	makeCategorySelectionCheckboxes("columns");
+	createTable(columns, categories);
+
 
 	// Select all button functionality
 	$(".checkAll").click(function(e) {
@@ -95,7 +126,6 @@ $(document).ready(function() {
 		});
 	}
 
-	createTable(['Name', 'In Stock', 'Vendor', 'Vendor Price'], ["Erasers", "Notebooks", "Pencils", "Tapes"]);
 
 	// click handler to show/hide tabs of categories and columns
 	// Source: http://stackoverflow.com/questions/14073019/show-hide-twitter-bootstrap-tabs

@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   //to keep track of which item number it is - for undo and save purposes
   var itemCount = 0;
-  ref.once("value", function(snapshot) {
+  ref.on("value", function(snapshot) {
     var table = document.getElementById("update_table");
     snapshot.forEach(function(data) {
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
       tr.appendChild(td);
 
       var td_2 = document.createElement('TD');
-        td_2.width='70%';
+        td_2.width='60%';
         var p = document.createElement("p");
         p.setAttribute("class", "pencil-name top no-padding");
         p.setAttribute("data-item-number", itemCount);
@@ -57,38 +57,48 @@ $(document).ready(function() {
           td_2.appendChild(bar_div);
       tr.appendChild(td_2)
 
-        var td_3 = document.createElement('TD');
-          td_3.width='10%';
-          textarea = document.createElement('TEXTAREA')
-          textarea.appendChild(document.createTextNode(obj_attr["In Stock"]));
-          textarea.setAttribute("wrap", "off");
-          textarea.setAttribute("class", "form-control inputted_quantity");
-          textarea.setAttribute("id", "inputted_quantity-"+itemCount);
-          textarea.setAttribute("data-item-number", itemCount);
-          td_3.appendChild(textarea);
+      var td_3 = document.createElement('TD');
+        td_3.width='10%';
+        td_3.setAttribute("align", "right");
+        textarea = document.createElement('TEXTAREA');
+        textarea.appendChild(document.createTextNode(obj_attr["In Stock"]));
+        textarea.setAttribute("wrap", "off");
+        textarea.setAttribute("class", "form-control inputted_quantity");
+        textarea.setAttribute("id", "inputted_quantity-"+itemCount);
+        textarea.setAttribute("data-item-number", itemCount);
+        td_3.appendChild(textarea);
       tr.appendChild(td_3);
 
       var td_4 = document.createElement('TD');
         td_4.width='10%'
-          button = document.createElement('BUTTON')
-          button.innerHTML = 'Save'
+        maxQtyDiv = document.createElement('DIV');
+        maxQtyDiv.setAttribute("style", "margin-top:7px");
+          maxQty = document.createTextNode("/" + obj_attr["Max Quantity"]);
+          maxQtyDiv.appendChild(maxQty);
+        td_4.appendChild(maxQtyDiv);
+      tr.appendChild(td_4);
+
+      var td_5 = document.createElement('TD');
+        td_5.width='10%';
+          button = document.createElement('BUTTON');
+          button.innerHTML = 'Save';
           button.setAttribute("id", "save-btn"+itemCount);
           button.setAttribute("type", "button");
           button.setAttribute("class", "btn btn-primary btn-sm btn-text center-block save-btn");
           button.setAttribute("data-item-number", itemCount);
-        td_4.appendChild(button);
-      tr.appendChild(td_4);
+        td_5.appendChild(button);
+      tr.appendChild(td_5);
 
-      var td_5 = document.createElement('TD');
-        td_5.width='10%'
-          button2 = document.createElement('BUTTON')
-          button2.innerHTML = 'Reset to Previous'
+      var td_6 = document.createElement('TD');
+        td_6.width='10%';
+          button2 = document.createElement('BUTTON');
+          button2.innerHTML = 'Reset to Previous';
           button2.setAttribute("id", "undo-btn"+itemCount);
           button2.setAttribute("type", "button");
           button2.setAttribute("class", "btn btn-primary btn-sm btn-text center-block undo-btn");
           button2.setAttribute("data-item-number", itemCount);
-        td_5.appendChild(button2);
-      tr.appendChild(td_5);
+        td_6.appendChild(button2);
+      tr.appendChild(td_6);
 
 
 
