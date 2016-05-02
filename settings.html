@@ -7,6 +7,7 @@
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" integrity="sha256-oTyWrNiP6Qftu4vs2g0RPCKr3g1a6QTlITNgoebxRc4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="InventoryItLayout.css">
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   <script src="settings.js"></script>
 
 	<title>InventoryIt</title>
@@ -36,9 +37,45 @@
   </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="col-md-10 col-md-offset-1" id="white-background-div"></div>
+    <!--  Error Modal-->
+  <div id="invalid-quantity-error-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          <h4 class="modal-title" style="font-weight: bold">Invalid Quantity</h4>
+        </div>
+        <div class="modal-body">
+          <p id="invalid-quantity-error-message"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="col-md-10 col-md-offset-1" id="white-background-div"></div>
   <div class="spacer"></div>
+
+  <table id="items-table" class="table table-striped col-md-8 col-md-offset-2">
+    <thead>
+      <tr>
+        <th width="10%"></th> <!-- Image Column -->
+        <th width="60%">Name</th> <!-- Name and Progress Bar Column -->
+        <th width="10%" id="quantity"></th> <!-- Qty Column -->
+        <th width="10%" id="max-quantity">Max Qty.</th>
+        <th width="10%"><button type="button" class="btn btn-primary btn-md btn-text" id="save-all">Save All</button></th> <!-- Save Button Column -->
+        <th width="10%"></th>
+      </tr>
+    </thead>
+
+
+    <tbody id="update_table">
+
+
+    </tbody>
+  </table>
 
 </body>
 </html>

@@ -1,13 +1,15 @@
 $(document).ready(function() {
 
   $(":button").click(function(){
-  	selector = this.id;
-  	window.location.href = "./updateInventory.html?selector=" + selector;
+  	var selector = this.id;
+  	var identifiers = selector.split("_");
+  	window.location.href = "./updateInventory.html?" + identifiers[0] + "=" + identifiers[1];
   });
 
   $(".card-title").click(function(){
-  	selector = this.id.substring(0, this.id.length -1);
-  	window.location.href = "./updateInventory.html?selector=" + selector;
+  	var selector = this.id.substring(0, this.id.length -1);
+  	var identifiers = selector.split("_");
+  	window.location.href = "./updateInventory.html?" + identifiers[0] + "=" + identifiers[1];
   })
 
 });
