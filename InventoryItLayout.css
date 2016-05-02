@@ -9,8 +9,8 @@ body {
 }
 
 h1 {
-  font-family: 'Sirin Stencil', cursive;  
-  text-align: center;  
+  font-family: 'Sirin Stencil', cursive;
+  text-align: center;
   font-size: 72pt;
   margin-bottom: 75px;
 }
@@ -59,6 +59,7 @@ font-family: 'Sirin Stencil', cursive;
   height: 35px !important;
   text-align: center;
   overflow: auto;
+  resize: none;
 }
 
 .align-horizontally{
@@ -205,3 +206,14 @@ th {
 .pencil-name {
   font-size: 18px;
 }
+
+.nav-tabs {
+  padding-left: 15px;
+}
+
+/*.alert {
+  overflow: visible;
+  margin-top: 5px;
+  height: 40px;
+  width: 300px;
+}*/
