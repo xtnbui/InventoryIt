@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   //to keep track of which item number it is - for undo and save purposes
   var itemCount = 0;
-  ref.on("value", function(snapshot) {
+  ref.once("value", function(snapshot) {
     var table = document.getElementById("update_table");
     snapshot.forEach(function(data) {
 
@@ -41,6 +41,7 @@ $(document).ready(function() {
           var bar_div = document.createElement('DIV');
           bar_div.setAttribute("class", "progress bottom progress-size");
             var bar_div2 = document.createElement('DIV');
+            bar_div2.setAttribute("id", "progress-bar"+itemCount);
             bar_div2.setAttribute("class", "progress-bar progress-color");
             bar_div2.setAttribute("role", "progressbar");
             var percentage = Math.floor(obj_attr["In Stock"]/obj_attr["Max Quantity"]*100);
@@ -97,17 +98,14 @@ $(document).ready(function() {
       $("#undo-btn"+itemCount).attr("disabled", "");
       $("#save-btn"+itemCount).attr("disabled", "");
 
+      itemtoLastQuantity[itemCount] = [obj_attr["In Stock"]];
+
     });
   });
 
   //initialize all the currentIndices
   var numItems = 6;
-  // for (i=0; i<numItems; i++) {
-  //   itemtoCurrentIndex[i.toString()] = -1; //currentIndex starts at -1
-  // }
 
-  //save_button =
-  // $(".save-btn").click(function(event) {
   //from http://stackoverflow.com/questions/15090942/jquery-event-handler-not-working-on-dynamic-content
   $(document).on("click", ".save-btn", function(event) {
     var itemNumber = $(this).attr("data-item-number");
@@ -115,81 +113,53 @@ $(document).ready(function() {
 
     //check for invalid inputs
     //check if alphabet or symbol (non-number)
-    console.log("quantity:", quantity);
     var result = lookForInvalidCharacters(quantity);
     var allDigits = !result["letter"] && !result["special-character"];
 
-    //fill up the modal with correct info
-    $("#invalid-quantity-error-message").text("You entered the following invalid characters in the quantity field:");
-    if (result["letter"]) {
-      $("#invalid-quantity-error-message").append("<ul id=\"invalid-chars-list\"><li>Alphabet letter</li></ul>");
-    } if (result["special-character"]) {
-      $("#invalid-chars-list").append("<li>Special character (e.g. % or -)</li>");
+    if (!allDigits) {
+      //fill up the modal with correct info
+      $("#invalid-quantity-error-message").text("You entered the following invalid characters in the quantity field:");
+      if (result["letter"]) {
+        $("#invalid-quantity-error-message").append("<ul id=\"invalid-chars-list\"><li>Alphabet letter</li></ul>");
+      } if (result["special-character"]) {
+        $("#invalid-chars-list").append("<li>Special character (e.g. % or -)</li>");
+      }
+      $("#invalid-quantity-error-modal").modal("show");
+      $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
+      $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
     }
-    $("#invalid-quantity-error-modal").modal("show");
-    $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
-    $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
-
     //if the quantity only contains digits, check that if it's negative or not
-    if (allDigits) {
-      quantity = parseInt(quantity);
-      if ((quantity < 0)) {
-        //TODO: error modal
-        $("#invalid-quantity-error-message").text("It seems you entered a negative number in the quantity field, which isn't allowed. Please try again!");
-        $("#invalid-quantity-error-modal").modal("show");
-        $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
-        $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
-      } else {
-        if (!(itemtoLastQuantity[itemNumber])) {
-          //initialize an array to keep track of the most recent two quantities of that item, including currently saved one
-          //at first, it would be [54]
-          itemtoLastQuantity[itemNumber] = [quantity];
-        } else if (itemtoLastQuantity[itemNumber].length == 1) {
-          //so now the list should have two quantities, e.g. [54, 123]
-          itemtoLastQuantity[itemNumber].push(quantity);
-        } else if (itemtoLastQuantity[itemNumber].length == 2) {
-          //remove the least recent quantity
-          itemtoLastQuantity[itemNumber].splice(0, 1);
-          itemtoLastQuantity[itemNumber].push(quantity);
-          console.log("saved quantities are", itemtoLastQuantity);
-        }
-
-        //update the backend
-        //gets the appropriate data using itemNumber - check for safety?? TODO
-        //from: http://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value ,
-        //http://stackoverflow.com/questions/21756777/jquery-find-element-by-data-attribute-value
-        var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
-        updateBackendAndGiveVisualCues(itemTitle, itemNumber, quantity);
-    }
+    else {
+      checkNegativeAndUpdateBackend(quantity, itemNumber, itemtoLastQuantity);
     }
 
 });
 
   $(document).on("click", ".undo-btn", function(event) {
     var itemNumber = $(this).attr("data-item-number");
-    console.log("item number is", itemNumber);
     //get the least recent quantity, which is one quantity back (the quantity before the one that was last saved)
     var quantity = itemtoLastQuantity[itemNumber][0];
-    console.log("last quantity is", quantity);
-    // itemtoCurrentIndex[itemNumber] -= 1;
-    // var currentIndex = itemtoCurrentIndex[itemNumber];
-    // if (currentIndex > -1) {
+
     $("#inputted_quantity-"+itemNumber).val(quantity);
+    var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
+    updateBackendAndGiveVisualCues(itemTitle, itemNumber, quantity);
+
     //remove the most recent saved quantity (so if you go from 124 to 32, remove 124 from saved quantities)
     itemtoLastQuantity[itemNumber].splice(1, 1);
-    console.log("curently saved quantities after the undo", itemtoLastQuantity[itemNumber]);
-    //diabled doesn't need "" but added there so that attr function knows to add that attribute, not get its value
+    //disabled doesn't need "" but added there so that attr function knows to add that attribute, not get its value
     $("#undo-btn" + itemNumber).attr("disabled", "");
-    $("#save-btn" + itemNumber).removeAttr("disabled");
-    // }
+
   });
 
   $(document).on("click", "#save-all", function(event) {
     var listOfInputQuantityDIVs = $(".inputted_quantity");
+    var invalidInputs = false;
+    //will tel us if at least one quantity field has a letter or special-character
+    var finalResult = {"letter": false, "special-character": false};
+
     for (var i = 0; i < listOfInputQuantityDIVs.length; i++) {
-      console.log(listOfInputQuantityDIVs[i]);
       var currentElementID = listOfInputQuantityDIVs[i].id;
-      var inputtedQuantity = parseInt($("#" + currentElementID).val());
+      var inputtedQuantity = $("#" + currentElementID).val();
       var itemNumber = $("#" + currentElementID).attr("data-item-number");
       var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
 
@@ -197,16 +167,42 @@ $(document).ready(function() {
       ref.child(itemTitle).on("value", function(snapshot) {
         var itemProperties = snapshot.val();
         var savedQuantity = itemProperties["In Stock"];
-        console.log("saved quantity", savedQuantity);
-        //from https://css-tricks.com/snippets/javascript/javascript-keycodes/
-        // if (((event.keyCode >= 48) && (event.keyCode <= 57)) || ((event.keyCode >= 65) && (event.keyCode <= 90)) || (event.keyCode >= 96) && (event.keyCode <= 111) || (event.keyCode >= 186) && (event.keyCode <= 222)) { //only
-        console.log("inputted qty", inputtedQuantity);
-        console.log("inputtedQuantity != savedQuantity", inputtedQuantity != savedQuantity);
         if (inputtedQuantity != savedQuantity) {
-          //save the changed quantities and give user visual cues
-          updateBackendAndGiveVisualCues(itemTitle, itemNumber, inputtedQuantity);
+          var result = lookForInvalidCharacters(inputtedQuantity);
+          var allDigits = !result["letter"] && !result["special-character"];
+          if (!allDigits) {
+            invalidInputs = true;
+          }
+
+          //update finalResult
+          if (result["letter"]) {
+            finalResult["letter"] = true;
+          } if (result["special-character"]) {
+            finalResult["special-character"] = true;
+          }
+
+          if (!allDigits) {
+            $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
+            $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
+          }
+          else {
+            checkNegativeAndUpdateBackend(inputtedQuantity, itemNumber, itemtoLastQuantity);
+           }
+
         }
       });
+    }
+
+    //some quantity field was incorrect
+    if (invalidInputs) {
+      //fill up the modal with correct info
+      $("#invalid-quantity-error-message").text("You entered the following invalid characters in one or more quantity fields:");
+      if (finalResult["letter"]) {
+        $("#invalid-quantity-error-message").append("<ul id=\"invalid-chars-list\"><li>Alphabet letter</li></ul>");
+      } if (finalResult["special-character"]) {
+        $("#invalid-chars-list").append("<li>Special character (e.g. % or -)</li>");
+      }
+      $("#invalid-quantity-error-modal").modal("show");
     }
   });
 
@@ -214,27 +210,24 @@ $(document).ready(function() {
   $(document).on("keyup", ".inputted_quantity", function(event) {
     var itemNumber = $(this).attr("data-item-number");
     var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
-    console.log("keydown!");
     ref.child(itemTitle).on("value", function(snapshot) {
       var itemProperties = snapshot.val();
       var savedQuantity = itemProperties["In Stock"];
-      console.log("saved quantity", savedQuantity);
       //from https://css-tricks.com/snippets/javascript/javascript-keycodes/
-      // if (((event.keyCode >= 48) && (event.keyCode <= 57)) || ((event.keyCode >= 65) && (event.keyCode <= 90)) || (event.keyCode >= 96) && (event.keyCode <= 111) || (event.keyCode >= 186) && (event.keyCode <= 222)) { //only
-      var inputtedQuantity = parseInt($("#inputted_quantity-" + itemNumber).val());
-      console.log("inputted qty", inputtedQuantity);
-      console.log("inputtedQuantity != savedQuantity", inputtedQuantity != savedQuantity);
-      if (inputtedQuantity != savedQuantity) {
+      var inputtedQuantity = $("#inputted_quantity-" + itemNumber).val();
+      if (inputtedQuantity != savedQuantity.toString()) {
         $("#inputted_quantity-" + itemNumber).css("background-color", "rgba(241, 4, 35, 0.13)");
         $("#save-btn" + itemNumber).removeAttr("disabled");
-        console.log("changed background and disabled")
       } else {
         $("#inputted_quantity-" + itemNumber).css("background-color", "#fff");
+        $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid #ccc");
         $("#save-btn" + itemNumber).attr("disabled", "");
       }
     });
   });
 
+
+  //HELPER FUNCTIONS
   var updateBackendAndGiveVisualCues = function(itemTitle, itemNumber, quantity) {
     //save the changed quantities and give user visual cues
     ref.child(itemTitle).update({
@@ -245,14 +238,20 @@ $(document).ready(function() {
               console.log("DIDN'T SAVE!!");
             } else {
               //from http://stackoverflow.com/questions/275931/how-do-you-make-an-element-flash-in-jquery
-              $("#inputted_quantity-"+itemNumber).css("border", "1px solid #ccc");
+              $("#inputted_quantity-"+itemNumber).css("border", "0.5px solid #ccc");
               $("#inputted_quantity-"+itemNumber).css("background-color", "#DFF0D8");
               window.setTimeout(function() {
                 $("#inputted_quantity-"+itemNumber).animate({backgroundColor: "#fff"});
               }, 1000);
 
-              $("#undo-btn" + itemNumber).removeAttr("disabled"); //enable the undo button
               $("#save-btn" + itemNumber).attr("disabled", ""); //disable the save button
+              ref.child(itemTitle).on("value", function(snapshot) {
+                var maxQuantity = snapshot.val()["Max Quantity"];
+                var percentage = Math.floor(quantity/maxQuantity*100);
+                $("#progress-bar" + itemNumber).css("width", percentage + "%");
+                $("#progress-bar" + itemNumber).attr("aria-valuenow", quantity);
+              });
+
             }
           });
   }
@@ -270,5 +269,38 @@ $(document).ready(function() {
       }
     }
     return result;
+  }
+
+  var checkNegativeAndUpdateBackend = function(inputtedQuantity, itemNumber, itemtoLastQuantity) {
+    var quantity = parseInt(inputtedQuantity);
+    if ((quantity < 0)) {
+      //TODO: error modal
+      $("#invalid-quantity-error-message").text("It seems you entered a negative number in the quantity field, which isn't allowed. Please try again!");
+      $("#invalid-quantity-error-modal").modal("show");
+      $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
+      $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
+    } else {
+      if (!(itemtoLastQuantity[itemNumber])) {
+        //initialize an array to keep track of the most recent two quantities of that item, including currently saved one
+        //at first, it would be [54]
+        itemtoLastQuantity[itemNumber] = [quantity];
+      } else if (itemtoLastQuantity[itemNumber].length == 1) {
+        //so now the list should have two quantities, e.g. [54, 123]
+        itemtoLastQuantity[itemNumber].push(quantity);
+      } else if (itemtoLastQuantity[itemNumber].length == 2) {
+        //remove the least recent quantity
+        itemtoLastQuantity[itemNumber].splice(0, 1);
+        itemtoLastQuantity[itemNumber].push(quantity);
+      }
+
+      //update the backend
+      //gets the appropriate data using itemNumber - check for safety?? TODO
+      //from: http://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value ,
+      //http://stackoverflow.com/questions/21756777/jquery-find-element-by-data-attribute-value
+      var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
+      //save the changed quantities and give user visual cues
+      updateBackendAndGiveVisualCues(itemTitle, itemNumber, inputtedQuantity);
+      $("#undo-btn" + itemNumber).removeAttr("disabled"); //enable the undo button
+    }
   }
 });

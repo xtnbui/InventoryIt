@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	  var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
+	var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
 
 	var myDataRef = new Firebase('https://blinding-inferno-865.firebaseio.com/');
 
@@ -9,7 +9,7 @@ $(document).ready(function() {
 		if (type == "categories") {
 			text = ["Erasers", "Notebooks", "Pencils", "Tapes"];
 		} else if (type == "columns") {
-			text = ["Name", "SKU", "Brand", "Vendor", "In Stock", "Unit Price", "Last Counted", "On Order", "Vendor Price", "Last Ordered"];
+			text = ["Name", "SKU", "Brand", "Vendor", "In Stock", "Unit Price", "Vendor Price"];
 		}
 		return text;
 	}
@@ -70,7 +70,7 @@ $(document).ready(function() {
 		}
 	}
 
-	function createTable(headers) {
+	function createTable(headers, categories) {
 		var table = document.getElementById("view-table");
 		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
 		createTableHeaders(headers);
@@ -95,9 +95,9 @@ $(document).ready(function() {
 		});
 	}
 
-	createTable(['Name', 'In Stock', 'Vendor', 'Vendor Price']);
+	createTable(['Name', 'In Stock', 'Vendor', 'Vendor Price'], ["Erasers", "Notebooks", "Pencils", "Tapes"]);
 
-	//click handler to show/hide tabs of categories and columns
+	// click handler to show/hide tabs of categories and columns
 	// Source: http://stackoverflow.com/questions/14073019/show-hide-twitter-bootstrap-tabs
 	$('#alltabs a').click(function(e) {
 	    var tab = $(this);
@@ -108,30 +108,32 @@ $(document).ready(function() {
 	            tab.blur();
 	        });
 	    }
+	});
+
+	// click handler for submit button
+	$("#submit-button").click(function(e) {
+		var columns = [];
+		var categories = [];
+
+		var column_values = document.getElementsByClassName("columns");
+		var category_values = document.getElementsByClassName("categories");
+		
+		for (var i=0; i<column_values.length; i++) {
+			if (column_values[i].checked && column_values[i].name != "Select All")
+				columns.push(column_values[i].name);
+		}
+
+		for (var i=0; i<category_values.length; i++) {
+			if (category_values[i].checked && category_values[i].name != "Select All")
+				categories.push(category_values[i].name);
+		}
+
+		// clear table
+		// source: http://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+		var table = document.getElementById("view-table");
+		while (table.firstChild)
+			table.removeChild(table.firstChild);
+		
+		createTable(columns, categories);
+	});
 });
-
-
-});
-
-// On form submission, collect submit
-function submitForm(evt) {
-	var columns = [];
-	var categories = [];
-
-	var column_values = document.getElementsByClassName("columns");
-	var category_values = document.getElementsByClassName("categories");
-	
-	for (var i=0; i<column_values.length; i++) {
-		if (column_values[i].checked)
-			columns.push(column_values[i].name);
-	}
-
-	for (var i=0; i<category_values.length; i++) {
-		if (category_values[i].checked)
-			categories.push(category_values[i].name);
-	}
-
-	// The href needs to change depending on columns & categories selected
-	window.location.href = "viewInventory.html";
-	return false;
-}
