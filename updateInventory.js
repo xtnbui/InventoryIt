@@ -43,7 +43,8 @@ $(document).ready(function() {
             var bar_div2 = document.createElement('DIV');
             bar_div2.setAttribute("class", "progress-bar progress-color");
             bar_div2.setAttribute("role", "progressbar");
-            bar_div2.setAttribute("style", "width:10%");
+            var percentage = Math.floor(obj_attr["In Stock"]/obj_attr["Max Quantity"]*100);
+            bar_div2.setAttribute("style", "width:" + percentage + "%");
             bar_div2.setAttribute("aria-valuenow", obj_attr["In Stock"]);
             bar_div2.setAttribute("aria-valuemax", obj_attr["Max Quantity"]);
             bar_div2.setAttribute("aria-valuemin", "0");
@@ -110,34 +111,58 @@ $(document).ready(function() {
   //from http://stackoverflow.com/questions/15090942/jquery-event-handler-not-working-on-dynamic-content
   $(document).on("click", ".save-btn", function(event) {
     var itemNumber = $(this).attr("data-item-number");
-    var quantity = parseInt($("#inputted_quantity-"+itemNumber).val());
-    //if user inputs negative quantity, warn them about it
-    //TODO: check if alphabet or symbol (non-number)
-    if ((quantity < 0)) {
-      //TODO: error modal
-      $("#inputted_quantity-"+itemNumber).val("");
-    } else {
-      if (!(itemtoLastQuantity[itemNumber])) {
-        //initialize an array to keep track of the most recent two quantities of that item, including currently saved one
-        //at first, it would be [54]
-        itemtoLastQuantity[itemNumber] = [quantity];
-      } else if (itemtoLastQuantity[itemNumber].length == 1) {
-        //so now the list should have two quantities, e.g. [54, 123]
-        itemtoLastQuantity[itemNumber].push(quantity);
-      } else if (itemtoLastQuantity[itemNumber].length == 2) {
-        //remove the least recent quantity
-        itemtoLastQuantity[itemNumber].splice(0, 1);
-        itemtoLastQuantity[itemNumber].push(quantity);
-        console.log("saved quantities are", itemtoLastQuantity);
-      }
+    var quantity = $("#inputted_quantity-"+itemNumber).val();
 
-      //update the backend
-      //gets the appropriate data using itemNumber - check for safety?? TODO
-      //from: http://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value ,
-      //http://stackoverflow.com/questions/21756777/jquery-find-element-by-data-attribute-value
-      var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
-      updateBackendAndGiveVisualCues(itemTitle, itemNumber, quantity);
-  }
+    //check for invalid inputs
+    //check if alphabet or symbol (non-number)
+    console.log("quantity:", quantity);
+    var result = lookForInvalidCharacters(quantity);
+    var allDigits = !result["letter"] && !result["special-character"];
+
+    //fill up the modal with correct info
+    $("#invalid-quantity-error-message").text("You entered the following invalid characters in the quantity field:");
+    if (result["letter"]) {
+      $("#invalid-quantity-error-message").append("<ul id=\"invalid-chars-list\"><li>Alphabet letter</li></ul>");
+    } if (result["special-character"]) {
+      $("#invalid-chars-list").append("<li>Special character (e.g. % or -)</li>");
+    }
+    $("#invalid-quantity-error-modal").modal("show");
+    $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
+    $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
+
+    //if the quantity only contains digits, check that if it's negative or not
+    if (allDigits) {
+      quantity = parseInt(quantity);
+      if ((quantity < 0)) {
+        //TODO: error modal
+        $("#invalid-quantity-error-message").text("It seems you entered a negative number in the quantity field, which isn't allowed. Please try again!");
+        $("#invalid-quantity-error-modal").modal("show");
+        $("#inputted_quantity-" + itemNumber).css("background-color", "#rgba(242, 222, 222, 0.15)");
+        $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid rgba(255, 0, 0, 0.6)");
+      } else {
+        if (!(itemtoLastQuantity[itemNumber])) {
+          //initialize an array to keep track of the most recent two quantities of that item, including currently saved one
+          //at first, it would be [54]
+          itemtoLastQuantity[itemNumber] = [quantity];
+        } else if (itemtoLastQuantity[itemNumber].length == 1) {
+          //so now the list should have two quantities, e.g. [54, 123]
+          itemtoLastQuantity[itemNumber].push(quantity);
+        } else if (itemtoLastQuantity[itemNumber].length == 2) {
+          //remove the least recent quantity
+          itemtoLastQuantity[itemNumber].splice(0, 1);
+          itemtoLastQuantity[itemNumber].push(quantity);
+          console.log("saved quantities are", itemtoLastQuantity);
+        }
+
+        //update the backend
+        //gets the appropriate data using itemNumber - check for safety?? TODO
+        //from: http://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value ,
+        //http://stackoverflow.com/questions/21756777/jquery-find-element-by-data-attribute-value
+        var itemTitle = $("#items-table").find("p[data-item-number=" + itemNumber + "]").text();
+        updateBackendAndGiveVisualCues(itemTitle, itemNumber, quantity);
+    }
+    }
+
 });
 
   $(document).on("click", ".undo-btn", function(event) {
@@ -200,7 +225,6 @@ $(document).ready(function() {
       console.log("inputted qty", inputtedQuantity);
       console.log("inputtedQuantity != savedQuantity", inputtedQuantity != savedQuantity);
       if (inputtedQuantity != savedQuantity) {
-
         $("#inputted_quantity-" + itemNumber).css("background-color", "rgba(241, 4, 35, 0.13)");
         $("#save-btn" + itemNumber).removeAttr("disabled");
         console.log("changed background and disabled")
@@ -221,6 +245,7 @@ $(document).ready(function() {
               console.log("DIDN'T SAVE!!");
             } else {
               //from http://stackoverflow.com/questions/275931/how-do-you-make-an-element-flash-in-jquery
+              $("#inputted_quantity-"+itemNumber).css("border", "1px solid #ccc");
               $("#inputted_quantity-"+itemNumber).css("background-color", "#DFF0D8");
               window.setTimeout(function() {
                 $("#inputted_quantity-"+itemNumber).animate({backgroundColor: "#fff"});
@@ -230,5 +255,20 @@ $(document).ready(function() {
               $("#save-btn" + itemNumber).attr("disabled", ""); //disable the save button
             }
           });
+  }
+
+  var lookForInvalidCharacters = function(quantity) {
+    var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    var result = {"letter": false, "special-character": false};
+    for (var i = 0; i < quantity.length; i++) {
+      if (alphabet.indexOf(quantity[i]) != -1) { //a letter
+        result["letter"] = true;
+      } else if ($.inArray(parseInt(quantity[i]), numbers) == -1) { //not a number; special character
+        result["special-character"] = true;
+      }
+    }
+    return result;
   }
 });
