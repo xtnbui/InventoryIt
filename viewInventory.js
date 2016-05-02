@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	  var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
 
+	var myDataRef = new Firebase('https://blinding-inferno-865.firebaseio.com/');
+
 	// Generate label text for checkboxes
 	function generateCheckboxLabelText(type) {
 		var text;
