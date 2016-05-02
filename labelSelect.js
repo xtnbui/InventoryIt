@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-  //clicking on pencils icon or title link redirects you to update inv page
-  $("#pencil-icon").click(function(event) {
-    window.location.href = "./updateInventory.html";
+  $(":button").click(function(){
+  	selector = this.id;
+  	window.location.href = "./updateInventory.html?selector=" + selector;
   });
 
-  $("#pencils").click(function(event) {
-    window.location.href = "./updateInventory.html";
-  });
-
+  $(".card-title").click(function(){
+  	selector = this.id.substring(0, this.id.length -1);
+  	window.location.href = "./updateInventory.html?selector=" + selector;
+  })
 
 });
