@@ -37,6 +37,10 @@ h1 {
   background-color: #212A33;
 }
 
+.off-white-background {
+  background-color: #F5F5F5;
+}
+
 /* Source: box shadow http://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
 #white-background-div {
   bottom: 0;
@@ -45,6 +49,10 @@ h1 {
   background-color: #F5F5F5;
   z-index: -1;
   /* box-shadow: 12px 0 5px -8px #999999, -12px 0 5px -8px #999999; */
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #F5F5F5;
 }
 
 .card {
@@ -162,6 +170,8 @@ h1 {
 
 .btn-icon {
   min-height: 100px;
+  background-color: #F5F5F5;
+  border: 1px solid #BDBDBD;
 }
 
 .checkbox-inline+.checkbox-inline {
@@ -200,13 +210,22 @@ label.checkbox-inline {
   border: 1px solid #BDBDBD;
 }
 
+#items-table {
+  border: 1px solid #BDBDBD;
+}
+
 td {
   position: relative;
   font-size: 16px
 }
 
 th {
-  font-size: 24px
+  font-size: 20px
+}
+
+/* source: http://stackoverflow.com/questions/20825211/bootstrap-table-striped-how-do-i-change-the-stripe-background-colour */
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color: #EEEEEE;
 }
 
 #quantity {
