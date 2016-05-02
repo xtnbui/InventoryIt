@@ -119,8 +119,9 @@ h1 {
 }
 
 .progress {
-  width: 70%;
+  width: 90%;
   margin-bottom: 10px !important;
+  background-color: #D7DBDF;
 }
 
 .no-padding {
@@ -194,10 +195,6 @@ label.checkbox-inline {
 
 .progress-size {
   height: 20%;
-}
-
-.progress {
-  background-color: #D7DBDF;
 }
 
 .progress-color {

@@ -67,7 +67,7 @@ $(document).ready(function() {
 
           var tr = document.createElement('TR');
           var td = document.createElement('TD');
-            td.width='10%';
+            td.width='20%';
             img = document.createElement('IMG');
             img.setAttribute("class", "thumbnail-image img-responsive");
             img.setAttribute("src", obj_attr["Image"]);
