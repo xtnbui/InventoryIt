@@ -72,11 +72,12 @@ $(document).ready(function() {
 		var table = document.getElementById("table");
 		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
 		createTableHeaders(headers);
-
+		table_body = document.createElement('TBODY');
 		ref.on("value", function(snapshot) {
 		    snapshot.forEach(function(data) {
 		    	tr_item = document.createElement('TR');
 		    	tr_item.setAttribute("class", "item");
+		    	table_body.appendChild(tr_item);
 		    	obj_name = data.key();
 		    	obj_attr = data.val();
 		    	for (var i = 0; i < headers.length; i++) {
@@ -87,7 +88,7 @@ $(document).ready(function() {
 		    			td.innerHTML = obj_attr[headers[i]] }
 			    	tr_item.appendChild(td);
 		    	}
-		    	table.appendChild(tr_item);
+		    	table.appendChild(table_body);
 		    });
 		});
 	}
