@@ -202,39 +202,6 @@
 			"Max Quantity": "25",
 			"Category": "Tapes",
 			"Image": "./tapes_pictures/Scotch_Double.jpeg"
-		},
-		"Swingline Red Business Stapler": {
-			"SKU":"018", 
-			"Brand":"Mead", 
-			"Vendor":"Mead", 
-			"In Stock":"29", 
-			"Unit Price":"19.99", 
-			"Vendor Price":"17.00", 
-			"Max Quantity": "35",
-			"Category": "Office Supplies",
-			"Image": "./supplies_pictures/Stapler.jpg"
-		},
-		"Mead Tab Dividers with Pocket": {
-			"SKU":"019", 
-			"Brand":"Mead", 
-			"Vendor":"Mead", 
-			"In Stock":"20", 
-			"Unit Price":"3.99", 
-			"Vendor Price":"2.00", 
-			"Max Quantity": "40",
-			"Category": "Office Supplies",
-			"Image": "./supplies_pictures/Dividers.png"
-		},
-		"Mead Zipper Expanding File": {
-			"SKU":"020", 
-			"Brand":"Mead", 
-			"Vendor":"Mead", 
-			"In Stock":"20", 
-			"Unit Price":"13.99", 
-			"Vendor Price":"10.00", 
-			"Max Quantity": "25",
-			"Category": "Office Supplies",
-			"Image": "./supplies_pictures/Mead_ZipperFile.jpg"
 		}
 	},
 	"Brand": [
