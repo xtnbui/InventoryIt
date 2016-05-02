@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	var rightAlign = new Set(["SKU", "In Stock", "Unit Price", "Vendor Price"])
 	$.extend({
 	    getUrlVars : function() {
 	        var vars = [], hash;
@@ -36,7 +36,7 @@ $(document).ready(function() {
 		if (type == "categories") {
 			text = ["Erasers", "Notebooks", "Pencils", "Tapes"];
 		} else if (type == "columns") {
-			text = ["Name", "SKU", "Brand", "Vendor", "In Stock", "Unit Price", "Vendor Price"];
+			text = ["Name", "SKU", "In Stock", "Unit Price", "Vendor Price", "Brand", "Vendor", ];
 		}
 		return text;
 	}
@@ -111,6 +111,9 @@ $(document).ready(function() {
 		for (var i = 0; i < columns.length; i++) {
   			var header = document.createElement('TH');
 			header.innerHTML = columns[i]
+			if (rightAlign.has(columns[i])) {
+				header.setAttribute("class", "right-align");
+			}
 			head_tr.appendChild(header)
 		}
 	}
@@ -133,6 +136,9 @@ $(document).ready(function() {
 			    	obj_attr = data.val();
 			    	for (var i = 0; i < headers.length; i++) {
 			    		td = document.createElement('TD');
+			    		if (rightAlign.has(headers[i])) {
+			    			td.setAttribute("class", "right-align");
+			    		}
 			    		if (headers[i] == "Name") {
 			    			td.innerHTML = obj_name }
 			    		else {

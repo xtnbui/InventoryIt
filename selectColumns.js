@@ -8,7 +8,7 @@ $(document).ready(function() {
 		if (type == "categories") {
 			text = ["Erasers", "Notebooks", "Pencils", "Tapes"];
 		} else if (type == "columns") {
-			text = ["Name", "SKU", "Brand", "Vendor", "In Stock", "Unit Price", "Vendor Price"];
+			text = ["Name", "SKU", "In Stock", "Unit Price", "Vendor Price", "Brand", "Vendor", ];
 		}
 		return text;
 	}
