@@ -202,6 +202,18 @@
 			"Max Quantity": "25",
 			"Category": "Tapes",
 			"Image": "./tapes_pictures/Scotch_Double.jpeg"
+		},
+		"Staedtler Plastic Eraser": {
+			"SKU":"019", 
+			"Brand":"Staedtler", 
+			"Vendor":"Staedtler", 
+			"In Stock":"1", 
+			"Unit Price":"1.99", 
+			"Vendor Price":"1.35", 
+			"Max Quantity":"50",
+			"Category": "Erasers",
+			"Image": "./eraser_pictures/staedtler_eraser.jpg"
+
 		}
 	},
 	"Brand": {
@@ -227,7 +239,8 @@
 			"Pilot Pencil"
 		],
 		"Staedtler" : [
-			"Staedtler Pencil, 12ct"
+			"Staedtler Pencil, 12ct",
+			"Staedtler Plastic Eraser"
 		],
 		"Mead" : [
 			"Five Star Wirebound College Rule Notebooks",
@@ -248,7 +261,8 @@
 			"Papermate White Pearl Eraser",
 			"Pentel Hi-Polymer Eraser Colors - Assorted 4-Pack",
 			"Pentel Hi-Polymer Eraser",
-			"Pentel Hi-Polymer Eraser 3 Pack"
+			"Pentel Hi-Polymer Eraser 3 Pack",
+			"Staedtler Plastic Eraser"
 		], 
 		"Notebooks" : [
 			"Five Star Wirebound College Rule Notebooks",
@@ -286,7 +300,8 @@
 			"Staedtler Pencil, 12ct",
 			"Scotch Magic Tape, Clear",
 			"Scotch Giftwrap Tape, 2 Pack",
-			"Scotch Double-Sided Office Tape, 2 Pack"		
+			"Scotch Double-Sided Office Tape, 2 Pack",
+			"Staedtler Plastic Eraser"	
 		]
 	}
 }
