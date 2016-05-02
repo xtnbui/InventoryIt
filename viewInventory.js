@@ -44,6 +44,7 @@ $(document).ready(function() {
 	// Generate checkbox elements
 	function makeCategorySelectionCheckboxes(type) {
 		var labelText = generateCheckboxLabelText(type);
+		var colSet = new Set(columns);
 
 		var selectionDiv = $("<div>", {
 			"class": "col-md-12",
@@ -65,7 +66,10 @@ $(document).ready(function() {
 				"name": labelText[i],
 			});
 
-			var colSet = new Set(columns);
+			if (labelText[i] == "Name") {
+				$(newCheckbox).prop("checked", true);
+				$(newCheckbox).prop("disabled", true);
+			}
 
 			if (categories.has(labelText[i]) || colSet.has(labelText[i]))
 				$(newCheckbox).prop("checked", true);

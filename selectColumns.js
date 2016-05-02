@@ -37,6 +37,11 @@ $(document).ready(function() {
 				"name": labelText[i],
 			});
 
+			if (labelText[i] == "Name") {
+				$(newCheckbox).prop("checked", true);
+				$(newCheckbox).prop("disabled", true);
+			}
+
 			newElt.prepend(newCheckbox);
 			selectionDiv.append(newElt);
 		}
@@ -55,6 +60,15 @@ $(document).ready(function() {
 			$($(elts[i])).prop("checked", $(this).prop("checked"));
 		}
 	});	
+
+	// Clear select all button if one of the options is unchecked
+	$(".checkbox").click(function(e) {
+		if (!($(this).prop("checked"))) {
+			var selectAllClass = this.getAttribute("class") + " checkAll";
+			var selectAllButton = document.getElementsByClassName(selectAllClass);
+			$(selectAllButton).prop("checked", false);
+		}
+	});
 });
 
 // On form submission, collect submit 
