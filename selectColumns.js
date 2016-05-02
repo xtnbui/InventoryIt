@@ -8,7 +8,7 @@ $(document).ready(function() {
 		if (type == "categories") {
 			text = ["Erasers", "Notebooks", "Pencils", "Tapes"];
 		} else if (type == "columns") {
-			text = ["Name", "SKU", "Brand", "Vendor", "In Stock", "Unit Price", "Last Counted", "On Order", "Vendor Price", "Last Ordered"];
+			text = ["Name", "SKU", "Brand", "Vendor", "In Stock", "Unit Price", "Vendor Price"];
 		}
 		return text;
 	}
@@ -59,11 +59,25 @@ $(document).ready(function() {
 
 // On form submission, collect submit 
 function submitForm() {
-	var columns;
-	var categories;
+	var columns = [];
+	var categories = [];
 
 	var column_values = document.getElementsByClassName("columns");
 	var category_values = document.getElementsByClassName("categories");
-	window.location.href = "viewInventory.html";
+	
+	for (var i=0; i<column_values.length; i++) {
+		if (column_values[i].checked)
+			columns.push(column_values[i].name);
+	}
+
+	for (var i=0; i<category_values.length; i++) {
+		if (category_values[i].checked)
+			categories.push(category_values[i].name);
+	}
+	console.log(columns);
+	console.log(categories);
+
+	var parameters = "columns=" + columns + "&" + "category=" + categories;
+	window.location.href = "viewInventory.html?" + parameters;
 	return false;
 }
