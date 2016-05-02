@@ -171,7 +171,7 @@ h1 {
 .btn-icon {
   min-height: 100px;
   background-color: #F5F5F5;
-  border: 2px solid #BDBDBD;
+  border: 1px solid #BDBDBD;
 }
 
 .checkbox-inline+.checkbox-inline {
@@ -221,6 +221,11 @@ td {
 
 th {
   font-size: 20px
+}
+
+/* source: http://stackoverflow.com/questions/20825211/bootstrap-table-striped-how-do-i-change-the-stripe-background-colour */
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color: #EEEEEE;
 }
 
 #quantity {
