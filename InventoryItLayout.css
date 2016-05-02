@@ -22,6 +22,7 @@ h1 {
 
 .navbar-inverse .navbar-brand {
   color: #A1ADB8;
+  padding-left: 30px;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -32,12 +33,16 @@ h1 {
   background-color: #000000;
 }
 
+.current-page {
+  background-color: #212A33;
+}
+
 /* Source: box shadow http://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
 #white-background-div {
   bottom: 0;
   top: 0;
   position: fixed;
-  background-color: white;
+  background-color: #F5F5F5;
   z-index: -1;
   /* box-shadow: 12px 0 5px -8px #999999, -12px 0 5px -8px #999999; */
 }
@@ -169,11 +174,6 @@ label.checkbox-inline {
 
 .control-label {
   margin-top: 10px;
-}
-
-.ui-datepicker {
-  margin-top: 10px;
-  background: white;
 }
 
 .table {
