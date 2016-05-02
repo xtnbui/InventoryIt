@@ -227,10 +227,10 @@ $(document).ready(function() {
       var savedQuantity = itemProperties["In Stock"];
       //from https://css-tricks.com/snippets/javascript/javascript-keycodes/
       var inputtedQuantity = $("#inputted_quantity-" + itemNumber).val();
-      $("#save-all").removeAttr("disabled");
       if (inputtedQuantity != savedQuantity.toString()) {
         $("#inputted_quantity-" + itemNumber).css("background-color", "rgba(241, 4, 35, 0.13)");
         $("#save-btn" + itemNumber).removeAttr("disabled");
+        $("#save-all").removeAttr("disabled");
       } else {
         $("#inputted_quantity-" + itemNumber).css("background-color", "#fff");
         $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid #ccc");
@@ -271,7 +271,7 @@ $(document).ready(function() {
 
   var lookForInvalidCharacters = function(quantity) {
     var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     var result = {"letter": false, "special-character": false};
     for (var i = 0; i < quantity.length; i++) {

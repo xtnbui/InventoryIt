@@ -208,6 +208,7 @@ $(document).ready(function() {
   });
 
   $(document).on("click", "#save-all", function(event) {
+    $("#save-all").attr("disabled", "");
     var listOfInputQuantityDIVs = $(".inputted_quantity");
     var invalidInputs = false;
     //will tel us if at least one quantity field has a letter or special-character
@@ -274,6 +275,7 @@ $(document).ready(function() {
       if (inputtedQuantity != savedQuantity.toString()) {
         $("#inputted_quantity-" + itemNumber).css("background-color", "rgba(241, 4, 35, 0.13)");
         $("#save-btn" + itemNumber).removeAttr("disabled");
+        $("#save-all").removeAttr("disabled");
       } else {
         $("#inputted_quantity-" + itemNumber).css("background-color", "#fff");
         $("#inputted_quantity-" + itemNumber).css("border", "0.5px solid #ccc");
@@ -314,7 +316,7 @@ $(document).ready(function() {
 
   var lookForInvalidCharacters = function(quantity) {
     var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     var result = {"letter": false, "special-character": false};
     for (var i = 0; i < quantity.length; i++) {
