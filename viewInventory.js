@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	  var ref = new Firebase('https://blinding-inferno-865.firebaseio.com/Name');
 
+	var myDataRef = new Firebase('https://blinding-inferno-865.firebaseio.com/');
+
 	// Generate label text for checkboxes
 	function generateCheckboxLabelText(type) {
 		var text;
@@ -56,7 +58,7 @@ $(document).ready(function() {
 	});
 
 	function createTableHeaders(columns) {
-		var table = document.getElementById("table");
+		var table = document.getElementById("view-table");
 		var tableHead = document.createElement('THEAD');
 		table.appendChild(tableHead);
 		var head_tr = document.createElement('TR');
@@ -69,14 +71,15 @@ $(document).ready(function() {
 	}
 
 	function createTable(headers) {
-		var table = document.getElementById("table");
+		var table = document.getElementById("view-table");
 		table.setAttribute("class", "table table-striped col-md-8 col-md-offset-2");
 		createTableHeaders(headers);
-
+		table_body = document.createElement('TBODY');
 		ref.on("value", function(snapshot) {
 		    snapshot.forEach(function(data) {
 		    	tr_item = document.createElement('TR');
 		    	tr_item.setAttribute("class", "item");
+		    	table_body.appendChild(tr_item);
 		    	obj_name = data.key();
 		    	obj_attr = data.val();
 		    	for (var i = 0; i < headers.length; i++) {
@@ -87,7 +90,7 @@ $(document).ready(function() {
 		    			td.innerHTML = obj_attr[headers[i]] }
 			    	tr_item.appendChild(td);
 		    	}
-		    	table.appendChild(tr_item);
+		    	table.appendChild(table_body);
 		    });
 		});
 	}

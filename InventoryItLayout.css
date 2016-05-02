@@ -5,7 +5,7 @@ html {
 
 body {
   font-family: 'Orienta', sans-serif;
-  background-color: #000010;
+  background-color: #0C1926;
 }
 
 h1 {
@@ -15,24 +15,35 @@ h1 {
   margin-bottom: 75px;
 }
 
+/* navbar */
 .navbar-header {
-font-family: 'Sirin Stencil', cursive;
+  font-family: 'Sirin Stencil', cursive;
 }
 
+.navbar-inverse .navbar-brand {
+  color: #A1ADB8;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #A1ADB8;
+}
 .nav-tabs {
   padding-left: 15px;
+}
+
+.navbar-default {
+  background-color: #000000;
 }
 
 /* Source: box shadow http://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only */
 #white-background-div {
   bottom: 0;
   top: 0;
-  position: absolute;
+  position: fixed;
   background-color: white;
   z-index: -1;
   /* box-shadow: 12px 0 5px -8px #999999, -12px 0 5px -8px #999999; */
 }
-
 
 .card {
   margin-top: 30px;
@@ -43,7 +54,7 @@ font-family: 'Sirin Stencil', cursive;
   margin-top: 15px;
 }
 
-.thumbnail-image{
+.thumbnail-image {
   width: 75px;
   height: 75px;
   border: solid 1px grey;
@@ -172,7 +183,6 @@ label.checkbox-inline {
   /*width: auto;*/
   width: 66%;
   margin-top: 2%;
-
 }
 
 .progress-size {
@@ -188,6 +198,9 @@ label.checkbox-inline {
   color: white;
 }
 
+#view-table {  
+  border: 1px solid #BDBDBD;
+}
 
 td {
   position: relative;
