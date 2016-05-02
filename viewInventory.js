@@ -114,12 +114,24 @@ $(document).ready(function() {
 });
 
 // On form submission, collect submit
-function submitForm() {
-	var columns;
-	var categories;
+function submitForm(evt) {
+	var columns = [];
+	var categories = [];
 
 	var column_values = document.getElementsByClassName("columns");
 	var category_values = document.getElementsByClassName("categories");
+	
+	for (var i=0; i<column_values.length; i++) {
+		if (column_values[i].checked)
+			columns.push(column_values[i].name);
+	}
+
+	for (var i=0; i<category_values.length; i++) {
+		if (category_values[i].checked)
+			categories.push(category_values[i].name);
+	}
+
+	// The href needs to change depending on columns & categories selected
 	window.location.href = "viewInventory.html";
 	return false;
 }
