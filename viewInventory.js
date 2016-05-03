@@ -89,7 +89,8 @@ $(document).ready(function() {
 		var checkType = $(this).prop("id");
 		var elts = document.getElementsByClassName(checkType);
 		for (var i=0; i<elts.length; i++) {
-			$($(elts[i])).prop("checked", $(this).prop("checked"));
+			if (elts[i].id != "Name")
+				$($(elts[i])).prop("checked", $(this).prop("checked"));
 		}
 	});
 
